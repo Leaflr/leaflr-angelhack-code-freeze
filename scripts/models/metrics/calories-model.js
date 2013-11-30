@@ -8,7 +8,8 @@ function( Backbone, Communicator ) {
 
 	return Backbone.AssociatedModel.extend({
 		defaults: {
-			name: '',
+			name: 'calories',
+			value: 0
 		}
 	});
 });

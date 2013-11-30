@@ -8,7 +8,8 @@ function( Backbone, Communicator ) {
 
 	return Backbone.AssociatedModel.extend({
 		defaults: {
-			name: '',
+			name: 'emissions',
+			value: 0
 		}
 	});
 });
