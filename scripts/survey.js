@@ -27,5 +27,23 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 
 	survey.set('steps', [ step_1, step_2 ]);
 
+	step_1.choices = {
+		name: 'vehicle type',
+		options: [
+			{
+				name: 'sedan',
+				icon: 'sedan.png'
+			},
+			{
+				name: 'sedan',
+				icon: 'sedan.png'
+			},
+			{
+				name: 'sedan',
+				icon: 'sedan.png'
+			}
+		]
+	}
+
 	return survey;
 });

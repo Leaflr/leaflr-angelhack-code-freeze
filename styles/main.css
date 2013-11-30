@@ -8,6 +8,10 @@ body {
 
 /* SURVEY CHOICES
 ============================*/
+
+#start-options {
+	display: block;
+}
 .options-wrapper {
 	display: none;
 	width: 100%;
@@ -19,9 +23,7 @@ body {
 .option:hover {
 	cursor: pointer;
 }
-#start-options {
-	display: block;
-}
+
 
 /* LIST OF COMPLETED SURVEYS
 ============================*/
