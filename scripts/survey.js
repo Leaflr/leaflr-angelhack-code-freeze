@@ -13,7 +13,7 @@ define([
 function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilModel, gasModel, emissionsModel, moneyModel ) {
     'use strict';
 
-	var survey = new surveyModel({}),
+	var survey = new surveyModel({ name: 'Bike', category: 'transit', completed: true }),
 		step_1 = new stepModel({ step: 1 }),
 		step_2 = new stepModel({ step: 2 });
 
@@ -27,7 +27,5 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 
 	survey.set('steps', [ step_1, step_2 ]);
 
-
-	console.log(survey)
 	return survey;
 });
