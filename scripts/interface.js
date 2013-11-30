@@ -19,5 +19,6 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
 		});
 	}
 
-	return interfaceEvents();
+	interfaceEvents();
+
 });
