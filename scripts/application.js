@@ -17,7 +17,7 @@ function( Backbone, Communicator, Welcome_tmpl ) {
 	/* Add initializers here */
 	App.addInitializer( function () {
 		document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
-		Communicator.mediator.trigger("APP:START");
+		Communicator.events.trigger("APP:START");
 	});
 
 	return App;
