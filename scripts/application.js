@@ -14,7 +14,7 @@ function( Backbone, Communicator, survey ) {
 
 	/* Add initializers here */
 	App.addInitializer( function () {
-		
+
 	});
 	
 	return App;
