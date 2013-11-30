@@ -1,22 +1,16 @@
-<?
+<?php
 include("../lib/inc.php");
 
-/* myGasFeed.com API Key
- * ===================== */
-$api_key  = 'reappeiu8s';
-$api_key  = 'rfej9napna';
-$lat      = '38.5121';
-$lng      = '-121.8333';
-$rad      = '1';
+/* Unused for now. Need better API to return gas prices based on zipcode.
+ *  Built in for future reference
+ * ====================================================================== */
+$zipcode = filter_var($_GET['zipcode'], FILTER_VALIDATE_INT);
 
+$url = "http://www.fueleconomy.gov/ws/rest/fuelprices";
+$ret = getCurlData($url);
 
-//By lat / Lng
-$url = "http://devapi.mygasfeed.com/stations/radius/".$lat."/".$lng."/".$rad."/mid/Distance/".$api_key.".json?callback=?";
-print $url;
-
-$gas_stations = json_decode("[".getCurlData($url)."]", true);
-
-print_r($gas_stations);
+print json_encode((array)simplexml_load_string($ret));
+?>
 
 
 
