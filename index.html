@@ -23,6 +23,38 @@
     </head>
 
     <body>
+        <div id="start-survey">
+            <!-- on load -->
+            <div id="start-options" class="options-wrapper">
+                <h4>Initial option</h4>
+                <div class="option" data-loads="#option1">option1</div>
+                <div class="option" data-loads="#option2">option2</div>
+                <div class="option" data-loads="#option3">option3</div>
+            </div>   
+            
+            <div id="option1" class="options-wrapper">
+                <h4>option1</h4>
+                <div class="option" data-loads="#option1">option1</div>
+                <div class="option" data-loads="#option2">option2</div>
+                <div class="option" data-loads="#option3">option3</div>
+            </div>
+
+            <div id="option2" class="options-wrapper">
+                <h4>option2</h4>
+                <div class="option" data-loads="#option1">option1</div>
+                <div class="option" data-loads="#option2">option2</div>
+                <div class="option" data-loads="#option3">option3</div>
+            </div>
+
+            <div id="option3" class="options-wrapper">
+                <h4>option3</h4>
+                <div class="option" data-loads="#option1">option1</div>
+                <div class="option" data-loads="#option2">option2</div>
+                <div class="option" data-loads="#option3">option3</div>
+            </div>
+
+        </div>
+
         <div id="survey-list"></div>
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/init" src="components/requirejs/require.js"></script>

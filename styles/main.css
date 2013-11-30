@@ -5,3 +5,28 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+/* SURVEY CHOICES
+============================*/
+.options-wrapper {
+	display: none;
+	width: 100%;
+}
+.option {
+	display: inline-block;
+	width: 30%;
+}
+.option:hover {
+	cursor: pointer;
+}
+#start-options {
+	display: block;
+}
+
+/* LIST OF COMPLETED SURVEYS
+============================*/
+
+#survey-list {}
+#survey-list ul.completed-surveys { }
+#survey-list .name {}
+#survey-list .resources {}

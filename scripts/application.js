@@ -2,7 +2,8 @@ define([
 	'backbone',
 	'communicator',
 	'collections/surveys-collection',
-	'views/survey-list-view'
+	'views/survey-list-view',
+	'interface'
 ],
 
 function( Backbone, Communicator, surveysCollection, surveyListView ) {
