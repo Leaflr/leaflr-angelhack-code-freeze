@@ -24,6 +24,10 @@ require.config({
         jquery: '../components/jquery/jquery',
         backbone: '../components/backbone-amd/backbone',
         underscore: '../components/underscore-amd/underscore',
+        associations: '../components/backbone-associations/backbone-associations-min',
+
+        jqueryui: '../components/jquery-ui/ui/minified/jquery-ui.min',
+        jquerytouch: '../components/jquery-ui-touch-punch/jquery.ui.touch-punch.min',
 
         /* alias all marionette libs */
         'backbone.marionette': '../components/backbone.marionette/lib/core/amd/backbone.marionette',
