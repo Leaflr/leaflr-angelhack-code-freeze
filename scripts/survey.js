@@ -37,22 +37,22 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 		{
 			name: 'sedan',
 			iconClass: 'sedan',
-			icon: 'sedan.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'suv',
 			iconClass: 'sedan',
-			icon: 'suv.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'truck',
 			iconClass: 'sedan',
-			icon: 'sedan.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'specific',
 			iconClass: 'sedan',
-			icon: 'specific.svg'
+			icon: 'sedan-01.svg'
 		}
 	]);
 
@@ -60,22 +60,22 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 		{
 			name: 'gas',
 			iconClass: 'gas',
-			icon: 'gas.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'electric',
 			iconClass: 'electric',
-			icon: 'electric.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'deisel',
 			iconClass: 'deisel',
-			icon: 'deisel.svg'
+			icon: 'sedan-01.svg'
 		},
 		{
 			name: 'hybrid',
 			iconClass: 'hybrid',
-			icon: 'hybrid.svg'
+			icon: 'sedan-01.svg'
 		}
 	]);
 
