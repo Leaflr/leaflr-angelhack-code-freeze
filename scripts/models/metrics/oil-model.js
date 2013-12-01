@@ -7,10 +7,30 @@ function( Backbone, Communicator ) {
     'use strict';
 
 	return Backbone.AssociatedModel.extend({
-    initialize: function() {
-      this.fetch({
-        url: 'data/oil_prices.php'
-      });
+	    defaults: {
+	    	value: 0
+	    },
+	    initialize: function(){
+		      this.fetch({
+		        url: 'data/oil_prices.php'
+		      });
+		},
+		activate: function(){
+			this.set('active', true);
+			return this;
+		},
+		addTo: function( val ){
+			var oldVal = parseFloat(this.get('value')),
+				newVal;
+
+			val = parseFloat(val);
+			newVal = oldVal + val;
+
+			this.set('value', newVal);
+			console.log(this.get('value'))
+		},
+		setTo: function( val ){
+			this.set('value', val);
 		}
 	});
 });

@@ -1,0 +1,19 @@
+.choice {
+	width: 25%;
+	display: inline-block;
+	text-align: center;
+}
+.choice .icon {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: #ccc;
+}
+.choice .icon:before {
+
+}
+.choice h6 {
+	
+}
