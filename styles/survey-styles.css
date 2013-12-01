@@ -1,10 +1,10 @@
 #survey-step {
 	margin-top: 40px;
 	position: relative;
+	text-align: center;
 }
 #metric-sliders, #survey-step, .completed-surveys {
 	padding: 0 5%;
-
 }
 
 .choice {
@@ -30,11 +30,15 @@
 	position: relative;
 	z-index: 10;
 }
+.icon-red {
+	background-color: #C0392A;
+}
 .icon-svg {
 	position: absolute;
-	width: 100px;
-	top: 25px;
-	margin-left: -48px;
+	width: 100%;
+	max-width: 150px;
+	top: 0px;
+	margin-left: -74px;
 }
 .icon:before {
 	content: '';
@@ -108,16 +112,17 @@
 }
 .metric-sliders .slider {
 	width: 100%;
-	height: 20px;
+	height: 16px;
 	background-color: #D4D5D9;
-	margin: 0 auto 5px;
+	margin: 0 auto 8px;
 	position: relative;
 	text-align: center;
+	text-indent: -99999px;
 	border-radius: 10px;
 }
 .metric-sliders .value {
-	height: 20px;
-	border-radius: 10px;
+	height: 16px;
+	border-radius: 8px;
 	background-color: rgba(0,0,0,.15);
 	position: absolute;
 	z-index: 5;
@@ -150,13 +155,13 @@
 	background-color: #232829;
 }
 .metric-sliders .money .value {
-	background-color: #2EB36C;
+	background-color: #2ECC71;
 }
 .metric-sliders .gas .value {
-	background-color: #D9D43F;
+	background-color: #F39C12;
 }
 .metric-sliders .emissions .value {
-	background-color: #636056;
+	background-color: #95A5A5;
 }
 .metric-sliders .calories .value {
 	background-color: #DEDE47;
@@ -171,14 +176,23 @@
 	padding: 10px 20px;
 	text-transform: capitalize;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size:18px;
-	color:#505460;
+	font-size: 18px;
+	color: #505460;
 }
 .completed-surveys .resources {
 	float: right;
 }
 .completed-surveys .resources div {
 	display: inline-block;
+}
+#survey-step select {
+	width: 200px;
+	display: block;
+	margin: 0 auto 10px;
+}
+#survey-step select.inactive {
+	pointer-events: none;
+	opacity: .5;
 }
 
 
