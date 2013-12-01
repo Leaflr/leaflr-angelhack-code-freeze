@@ -19,11 +19,13 @@
 	border-radius: 50%;
 	overflow: hidden;
 	margin: 0 auto;
+	margin-bottom: 10px;
 	position: relative;
-	background-color: #ccc;
 	text-align: center;
 }
 .icon img {
+	width: 100%;
+	height: auto;
 	position: relative;
 	z-index: 10;
 }
@@ -41,7 +43,7 @@
 	display: inline-block;
 	top: 0;
 	left: 0;
-	background-color: rgba(0,0,0,.04);
+	background-color: #DDE2E8;
 }
 .icon:after {
 	content: '';

@@ -42,19 +42,20 @@ $q = "
 INSERT INTO vehicle (vehicle_id,  year, 
                      make, model, fuel_type,
                      mpg_city, mpg_hwy, co2)
-  VALUES($car_table['car_vid'], 
-         $car_table['car_year'],
-	 $car_table['car_make'],
-	 $car_table['car_model'],
-	 $car_table['car_fuel_type'],
-	 $car_table['car_mpg_city'],
-	 $car_table['car_mpg_hwy'],
-	 $car_table['car_co2'])
+  VALUES($car_table[car_vid], 
+         $car_table[car_year],
+	 '$car_table[car_make]',
+	 '$car_table[car_model]',
+	 '$car_table[car_fuel_type]',
+	 '$car_table[car_mpg_city]',
+	 '$car_table[car_mpg_hwy]',
+	 '$car_table[car_co2]')
 ";
 
 print $q;
 
 $carid = $mysql->insert($q);
+print $carid;
 
 $trip_table = array(
    "trip_distance" => $_POST['tripdistance'],
@@ -72,6 +73,7 @@ INSERT INTO trip (distance, hwy_per)
 print $q;
 
 $tripid = $mysql->insert($q);
+print $tripid;
 
 $survey_table = array(
    "survey_freq" => $_POST['freq'],
@@ -83,12 +85,14 @@ $q = "
 INSERT INTO survey (vehicle_id, trip_id, freq,
        	    	    zipcode, vehicle_nonspec, created_at)
    VALUES($carid, $tripid,
-          $survey_table['survey_freq'],
-	  $survey_table['survey_zipcode'],
-	  $survey_table['survey_vehicle_nonspec'],
+          $survey_table[survey_freq],
+	  $survey_table[survey_zipcode],
+	  '$survey_table[survey_vehicle_nonspec]',
 	  now())
 
 ";
+
+print $q;
 
 $mysql->insert($q);
 
