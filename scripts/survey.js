@@ -268,7 +268,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       name: '1 day a week',
       iconClass: '1-day',
       icon: '1-day.svg',
-      nextStep: end,
+      nextStep: 'end',
       onSelect: function() {
         survey.results.tripFreq = this.name;
 
@@ -283,7 +283,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       name: '3 days a week',
       iconClass: '3-day',
       icon: '3-day.svg',
-      nextStep: end,
+      nextStep: 'end',
       onSelect: function() {
         survey.results.tripFreq = this.name;
 
@@ -296,7 +296,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       name: '5 days a week',
       iconClass: '5-day',
       icon: '5-day.svg',
-      nextStep: end,
+      nextStep: 'end',
       onSelect: function() {
         survey.results.tripFreq = this.name;
 
