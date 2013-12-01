@@ -14,8 +14,8 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
     'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
-		step_1 = new stepModel({ step: 1 }),
-		step_2 = new stepModel({ step: 2 });
+		vehicleType = new stepModel({ step: 'vehicle type' }),
+		fuelType = new stepModel({ step: 'fuel type' });
 
 	survey.set('metrics', [ 
 		new caloriesModel,
@@ -25,7 +25,7 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 		new moneyModel,
 	]);
 
-	survey.set('steps', [ step_1, step_2 ]);
+	survey.set('steps', [ vehicleType, fuelType ]);
 
 
 	/////////////////////////////
@@ -33,7 +33,7 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 	/////////////////////////////
 
 	
-	step_1.choices = [
+	vehicleType.set('choices', [
 		{
 			name: 'sedan',
 			iconClass: 'sedan',
@@ -54,11 +54,32 @@ function( Backbone, Communicator, surveyModel, stepModel, caloriesModel, oilMode
 			iconClass: 'sedan',
 			icon: 'specific.svg'
 		}
-	];
+	]);
 
-	step_1.onSubmit = function(){
+	fuelType.set('choices', [
+		{
+			name: 'gas',
+			iconClass: 'gas',
+			icon: 'gas.svg'
+		},
+		{
+			name: 'electric',
+			iconClass: 'electric',
+			icon: 'electric.svg'
+		},
+		{
+			name: 'deisel',
+			iconClass: 'deisel',
+			icon: 'deisel.svg'
+		},
+		{
+			name: 'hybrid',
+			iconClass: 'hybrid',
+			icon: 'hybrid.svg'
+		}
+	]);
 
-	}
+	
 	console.log(survey)
 	return survey;
 });
