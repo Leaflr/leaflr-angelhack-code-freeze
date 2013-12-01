@@ -2,7 +2,7 @@
 	margin-top: 40px;
 	position: relative;
 }
-#metric-sliders, #survey-step {
+#metric-sliders, #survey-step, .completed-surveys {
 	padding: 0 5%;
 
 }
@@ -108,7 +108,7 @@
 .metric-sliders .slider {
 	width: 100%;
 	height: 20px;
-	background-color: rgba(0,0,0,.07);
+	background-color: #D4D5D9;
 	margin: 0 auto 5px;
 	position: relative;
 	text-align: center;
@@ -159,6 +159,25 @@
 }
 .metric-sliders .calories .value {
 	background-color: #DEDE47;
+}
+
+.completed-surveys {
+	list-style-type: none;
+}
+.completed-surveys li {
+	background-color: #D4D5D9;
+	border-radius: 20px;
+	padding: 10px 20px;
+	text-transform: capitalize;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size:18px;
+	color:#505460;
+}
+.completed-surveys .resources {
+	float: right;
+}
+.completed-surveys .resources div {
+	display: inline-block;
 }
 
 
