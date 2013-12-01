@@ -7,22 +7,14 @@ define([
 	'models/metrics/gas-model',
 	'models/metrics/emissions-model',
 	'models/metrics/money-model',
-  'hbs!tmpl/custom-step-vehicle',
-  'hbs!tmpl/custom-step-vehicle',
-  'hbs!tmpl/custom-step-vehicle',
   'hbs!tmpl/custom-step-vehicle'
 ],
 
-function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel, emissionsModel, moneyModel, vYearTemplate, vMakeTemplate, vModelTemplate, vOptionTemplate) {
+function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel, emissionsModel, moneyModel, specificVehicle) {
     'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
 		vehicleType       = new stepModel({ step: 'vehicle type' }),
-    vehicleYear       = new stepModel({ step: 'vehicle year' }),
-    vehicleMake       = new stepModel({ step: 'vehicle make' }),
-    vehicleModel      = new stepModel({ step: 'vehicle model' }),
-    vehicleOption    = new stepModel({ step: 'vehicle options' }),
-
 		fuelType          = new stepModel({ step: 'fuel type' }),
     roadType          = new stepModel({ step: 'road type' }),
     distanceTraveled  = new stepModel({ step: 'distance traveled' }),
@@ -37,7 +29,16 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
 	survey.set('metrics', [ gas, emissions, money ]);
 
-	survey.set('steps', [ vehicleType, fuelType, specificVehicle ]);
+	survey.set('steps', [
+    vehicleType,
+    fuelType,
+    roadType,
+    distanceTraveled,
+    specificDistance,
+    specificVehicle,
+    userLocation,
+    tripFrequency
+  ]);
 
   survey.results = {};
 
@@ -92,37 +93,43 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			name: 'specific',
 			iconClass: 'sedan',
 			icon: 'specifcVehicle.svg',
-			nextStep: vehicleYear 
+			nextStep: specificVehicle
 		}),
 	]);
 
+  specificVehicle.set({
+    template: specificVehicle,
+    nextStep: fuelType
+  });
+/*
   /* Vehicle Year
-   * ============ */
+   * ============ 
   vehicleYear.set({
     template: vYearTemplate,
     nextStep: vehicleMake
   });
 
   /* Vehicle Make
-   * ============ */
+   * ============/
   vehicleMake.set({
     template: vMakeTemplate,
     nextStep: vehicleModel
   });
 
   /* Vehicle Model 
-   * ============ */
+   * ============ 
   vehicleModel.set({
     template: vModelTemplate,
     nextStep: vehicleOption 
   });
 
   /* Vehicle Option
-   * ============ */
+   * ============ 
   vehicleOption.set({
     template: vOptionTemplate,
     nextStep: fuelType
   });
+*/
 
   /* Fuel Type
    * ========= */
