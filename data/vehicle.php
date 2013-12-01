@@ -22,13 +22,13 @@ if (isset($_GET['year'])) {
 
 //given year and make, returns all models
 if (isset($_GET['make']) && isset($year)) {
-   $make = ($_GET['make']);
+   $make = filter_var($_GET['make'], FILTER_SANITIZE_STRING);
    $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=".$year."&make=".$make;
 }
 
 //given year, make, and model, returns options
 if (isset($_GET['model']) && isset($make) && isset($year)) {
-   $model = ($_GET['model']);
+   $model = filter_var($_GET['model'], FILTER_SANITIZE_STRING);
    $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=".$year."&make=".$make."&model=".$model;
 
 }
