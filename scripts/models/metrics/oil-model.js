@@ -7,9 +7,10 @@ function( Backbone, Communicator ) {
     'use strict';
 
 	return Backbone.AssociatedModel.extend({
-		defaults: {
-			name: 'oil',
-			value: 0,
+    initialize: function() {
+      this.fetch({
+        url: 'data/oil_prices.php'
+      });
 		}
 	});
 });

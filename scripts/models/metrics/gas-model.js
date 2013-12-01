@@ -7,9 +7,11 @@ function( Backbone, Communicator ) {
     'use strict';
 
 	return Backbone.AssociatedModel.extend({
-		defaults: {
-			value: 0,
-			name: 'gas',
-		}
+    initialize: function() {
+      var zipcode = '95811';
+      this.fetch({
+        url: 'data/gas_prices.php?zipcode='+zipcode,
+      });
+    }
 	});
 });
