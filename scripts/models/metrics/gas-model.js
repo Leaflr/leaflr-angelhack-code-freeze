@@ -8,7 +8,8 @@ function( Backbone, Communicator ) {
 
 	return Backbone.AssociatedModel.extend({
     defaults: {
-      value: 0
+      value: 0,
+      name: 'gas'
     },
     initialize: function() {
       var zipcode = '95811';
