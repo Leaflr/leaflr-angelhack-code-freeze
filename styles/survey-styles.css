@@ -32,9 +32,10 @@
 }
 .icon-svg {
 	position: absolute;
-	width: 100px;
-	top: 25px;
-	margin-left: -48px;
+	width: 100%;
+	max-width: 150px;
+	top: 0px;
+	margin-left: -74px;
 }
 .icon:before {
 	content: '';
