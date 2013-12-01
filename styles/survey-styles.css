@@ -30,6 +30,9 @@
 	position: relative;
 	z-index: 10;
 }
+.icon-red {
+	background-color: #C0392A;
+}
 .icon-svg {
 	position: absolute;
 	width: 100%;
