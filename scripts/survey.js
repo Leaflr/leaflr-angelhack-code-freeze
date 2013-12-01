@@ -17,6 +17,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
 		vehicleType = new stepModel({ step: 'vehicle type' }),
 		fuelType = new stepModel({ step: 'fuel type' }),
+    roadType  = new stepModel({ step: 'road type' }),
+    distanceTraveled  = new stepModel({ step: 'distance traveled' }),
+		specificDistance  = new stepModel({ step: 'specific distance' }),
 		specificVehicle = new stepModel({ step: 'specific vehicle' }),
 		oil = new oilModel,
 		gas = new gasModel,
@@ -42,7 +45,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			nextStep: fuelType,
 			onSelect: function(){
 				oil.activate().addTo(20);
-        money.activate().addTo(20);
+        money.activate().addTo(10);
         emissions.activate().addTo(20);
 			}
 		}),
@@ -80,24 +83,87 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 		new choicesModel({
 			name: 'gas',
 			iconClass: 'sedan',
-			icon: 'sedan-01.svg'
+			icon: 'sedan-01.svg',
+      nextStep: distanceTraveled,
+      onSelect: function() {
+        oil.activate().addTo(20);
+        money.activate().addTo(20);
+        emissions.activate().addTo(20);
+      }
 		}),
 		new choicesModel({
 			name: 'electric',
 			iconClass: 'sedan',
-			icon: 'sedan-01.svg'
+			icon: 'sedan-01.svg',
+      nextStep: distanceTraveled,
+      onSelect: function() {
+        oil.activate().addTo(5);
+        money.activate().addTo(5);
+        emissions.activate().addTo(0);
+      }
 		}),
 		new choicesModel({
 			name: 'deisel',
 			iconClass: 'sedan',
-			icon: 'sedan-01.svg'
+			icon: 'sedan-01.svg',
+      nextStep: distanceTraveled,
+      onSelect: function() {
+        oil.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+      }
 		}),
 		new choicesModel({
 			name: 'hybrid',
 			iconClass: 'sedan',
-			icon: 'sedan-01.svg'
+			icon: 'sedan-01.svg',
+      nextStep: specificDistance,
 		}),
 	]);
+
+  distanceTraveled.set('choices', [
+    new choicesModel({
+      name: '0-5',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: roadType,
+      onSelect: function() {
+        oil.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: '5-10',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: roadType,
+      onSelect: function() {
+        oil.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: '10-20',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: roadType,
+      onSelect: function() {
+        oil.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: 'Specific',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: roadType,
+    })
+  ]);
+
+
 
 	// specificVehicle.set('choices', [
 	// 	new choicesModel({
