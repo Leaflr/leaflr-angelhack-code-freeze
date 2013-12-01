@@ -41,6 +41,34 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
 
       endSurvey: function(){
         console.log('survey results', this.model.results);
+        var results = this.model.results;
+
+        // Calculations
+        var gallons = ((results.tripdistance * (results.hwyper / 100)) / results.carmpghwy) + ((results.tripdistance * ((100 - results.hwyper) / 100)) / results.carmpgcity);
+        gallons = (gallons * (2 * results.freq));
+
+        var money   = (gallons * 3.33);
+        var boi = (gallons / 19);
+
+        var co2     = results.tripdistance * results.carco2;
+        co2 = ((co2 * results.freq) * 2);
+
+        var calories  = results.tripdistance * 48;
+        calories = ((calories * results.freq) * 2);
+
+        var data = {};
+        data.oil = oil;
+        data.money = money;
+        data.gas = gallons;
+        data.calories = calories;
+
+        console.log('gallons', gallons);
+        console.log('money', money);
+        console.log('co2', co2);
+        console.log('cal', calories);
+        console.log('boi', boi);
+
+
         /* Send data to database
          * ===================== */
         $.ajax({
