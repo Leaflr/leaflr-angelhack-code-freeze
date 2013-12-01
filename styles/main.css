@@ -189,11 +189,24 @@ hr {
 .options-wrapper .option:first-of-type {
 	margin-left: 0px;
 }
-.choice {
+.choice, .result {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:18px;
 	text-align: center;
 	color:#505460;
+}
+.result {
+	width: 49%;
+	display: inline-block;
+	padding-bottom: 20px;
+}
+.result img {
+	width: 100px;
+	height: 100px;
+	padding-bottom: 15px;
+}
+.result span {
+	display: block;
 }
 
 
@@ -215,6 +228,8 @@ hr {
 #take-survey {
 	overflow: auto;
 }
+
+
 
 @media only screen and (max-width: 920px){
 	.option, .choice {
