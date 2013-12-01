@@ -198,6 +198,12 @@ hr {
 .result {
 	width: 49%;
 	display: inline-block;
+	padding-bottom: 20px;
+}
+.result img {
+	width: 100px;
+	height: 100px;
+	padding-bottom: 15px;
 }
 .result span {
 	display: block;

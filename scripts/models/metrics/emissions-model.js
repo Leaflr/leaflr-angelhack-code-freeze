@@ -22,6 +22,7 @@ function( Backbone, Communicator ) {
 			val = parseFloat(val);
 			newVal = oldVal + val;
 
+			if (newVal > 100) newVal = 100;
 			this.set('value', newVal);
 			console.log(this.get('value'))
 		},
