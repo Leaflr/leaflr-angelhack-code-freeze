@@ -3,7 +3,7 @@ define([
 	'communicator',
 	'collections/surveys-collection',
 	'views/survey-list-view',
-	'views/take-survey',
+	'views/take-survey-view',
 	'interface'
 ],
 
