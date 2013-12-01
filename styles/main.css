@@ -194,6 +194,20 @@ hr {
 	color:#505460;
 }
 
+
+#metric-sliders .slider {
+	width: 95%;
+	margin-left: 5%;
+}
+.metric-icon {
+	position: absolute;
+	left: -5%;
+	top: -10px;
+	z-index: 10;
+	width: 35px;
+	height: 35px;
+}
+
 @media only screen and (max-width: 920px){
 	.option, .choice {
 		position: relative;
@@ -214,6 +228,34 @@ hr {
 		width: 100%;
 		max-width: 100%;
 		border-radius: 0;
+	}
+	#metric-sliders .slider {
+	width: 90%;
+	margin-left: 10%;
+	}
+.metric-icon {
+	position: absolute;
+	left: -10%;
+	top: -10px;
+	z-index: 10;
+	width: 35px;
+	height: 35px;
+}
+}
+@media only screen and (max-width: 500px){
+	.options-wrapper {
+		padding: 0 10px;
+	}
+	.icon {
+		width: 120px;
+		height: 120px;
+	}
+	.icon-svg {
+		width: 120px;
+		margin-left: -62px;
+	}
+	.page-title {
+		display: none;
 	}
 }
 
