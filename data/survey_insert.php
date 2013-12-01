@@ -1,9 +1,28 @@
 <?php
 include("../lib/inc.php");
 
+//test
+$_POST['caryear'] = 2006;
+$_POST['carmake'] = 'Saturn';
+$_POST['carmodel'] = 'Ion';
+$_POST['carvid'] = 21864;
+$_POST['carfueltype'] = 'gas';
+$_POST['carmpgcity'] = '21';
+$_POST['carmpghwy'] = '29';
+$_POST['carco2'] = '370';
+
+$_POST['tripdistance'] = 9;
+$_POST['hwyper'] = 50;
+
+$_POST['freq'] = 5;
+$_POST['zip'] = 95628;
+$_POST['vehicle_nonspec'] = '0';
+
+print_r($_POST);
+
 /* Store information from survey in MySQL database
  * ====================================================================== */
-
+/*
 $mysql = mysql();
 
 $car_table = array(
@@ -33,7 +52,10 @@ INSERT INTO vehicle (vehicle_id,  year,
 	 $car_table['car_co2'])
 ";
 
+print "Vehicle Query:".$q;
+
 $carid = $mysql->insert($q);
+*/
 
 $trip_table = array(
    "trip_distance" => $_POST['tripdistance'],
@@ -48,13 +70,16 @@ INSERT INTO trip (distance, hwy_per)
 	 $trip_table[trip_hwy_per])
 ";
 
-$tripid = $myql->insert($q);
+print $q;
 
+$tripid = $mysql->insert($q);
+print 'TripID:'.$tripid;
+
+/*
 $survey_table = array(
    "survey_freq" => $_POST['freq'],
    "survey_zipcode" => $_POST['zip'],
-   "survey_vehicle_nonspec" => $_POST['vehicle_nonspec'],
-   "survey_created_at" => date('Y-m-d h:i:s A')
+   "survey_vehicle_nonspec" => $_POST['vehicle_nonspec']
 );
 
 $q = "
@@ -69,6 +94,6 @@ INSERT INTO survey (vehicle_id, trip_id, freq,
 ";
 
 $mysql->insert($q);
-   
+*/  
 
 ?>
