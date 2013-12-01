@@ -56,7 +56,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'sedan.svg',
 			nextStep: fuelType,
 			onSelect: function(){
-        survey.results.vehicleType = this.name;
+        survey.results.carvid = 17760;
 
 				gas.activate().addTo(20);
         money.activate().addTo(10);
@@ -69,7 +69,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'suv.svg',
 			nextStep: fuelType,
       onSelect: function() {
-        survey.results.vehicleType = this.name;
+        survey.results.carvid = 18068;
 
         gas.activate().addTo(60);
         money.activate().addTo(12);
@@ -82,7 +82,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'truck.svg',
 			nextStep: fuelType,
       onSelect: function() {
-        survey.results.vehicleType = this.name;
+        survey.results.carvid = 17893;
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
@@ -325,9 +325,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.freq = 3;
 
-        gas.activate().addTo(40);
-        money.activate().addTo(40);
-        emissions.activate().addTo(40);
+        gas.activate().addTo(20);
+        money.activate().addTo(20);
+        emissions.activate().addTo(20);
       }
     }),
     new choicesModel({
