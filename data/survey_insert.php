@@ -22,8 +22,8 @@ print_r($_POST);
 
 /* Store information from survey in MySQL database
  * ====================================================================== */
-/*
-$mysql = mysql();
+
+$mysql = new mysql();
 
 $car_table = array(
     "car_year" => $_POST['caryear'],
@@ -33,7 +33,7 @@ $car_table = array(
     "car_fuel_type" => $_POST['carfueltype'],
     "car_mpg_city" => $_POST['carmpgcity'],
     "car_mpg_hwy" => $_POST['carmpghwy'],
-    "car_co2" => $_POST['carco2'],
+    "car_co2" => $_POST['carco2']
 );
 
 //insert vehicle into mysql table
@@ -52,10 +52,9 @@ INSERT INTO vehicle (vehicle_id,  year,
 	 $car_table['car_co2'])
 ";
 
-print "Vehicle Query:".$q;
+print $q;
 
 $carid = $mysql->insert($q);
-*/
 
 $trip_table = array(
    "trip_distance" => $_POST['tripdistance'],
@@ -73,9 +72,7 @@ INSERT INTO trip (distance, hwy_per)
 print $q;
 
 $tripid = $mysql->insert($q);
-print 'TripID:'.$tripid;
 
-/*
 $survey_table = array(
    "survey_freq" => $_POST['freq'],
    "survey_zipcode" => $_POST['zip'],
@@ -94,6 +91,5 @@ INSERT INTO survey (vehicle_id, trip_id, freq,
 ";
 
 $mysql->insert($q);
-*/  
 
 ?>
