@@ -1,10 +1,10 @@
 #survey-step {
 	margin-top: 40px;
 	position: relative;
+	text-align: center;
 }
 #metric-sliders, #survey-step, .completed-surveys {
 	padding: 0 5%;
-
 }
 
 .choice {
@@ -171,14 +171,23 @@
 	padding: 10px 20px;
 	text-transform: capitalize;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size:18px;
-	color:#505460;
+	font-size: 18px;
+	color: #505460;
 }
 .completed-surveys .resources {
 	float: right;
 }
 .completed-surveys .resources div {
 	display: inline-block;
+}
+#survey-step select {
+	width: 200px;
+	display: block;
+	margin: 0 auto 10px;
+}
+#survey-step select.inactive {
+	pointer-events: none;
+	opacity: .5;
 }
 
 
