@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <title>TEST HTML PAGE - YOUR JS WORKS!</title>
+        <title>leaflr | Conservation Calculator.</title>
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -26,28 +26,32 @@
         <div id="start-survey">
             <!-- on load -->
             <div id="start-options" class="options-wrapper">
-                <h4>Initial option</h4>
-                <div class="option" data-loads="#option1">option1</div>
-                <div class="option" data-loads="#option2">option2</div>
-                <div class="option" data-loads="#option3">option3</div>
+                <h4>Initial</h4>
+                <div class="option transport" data-loads="#option1">option1</div>
+                <div class="option utilities" data-loads="#option2">option2</div>
+                <div class="option consumption" data-loads="#option3">option3</div>
             </div>   
             
             <div id="option1" class="options-wrapper">
+<<<<<<< HEAD
                 <h4>foobar</h4>
+=======
+                <h4>Transport</h4>
+>>>>>>> a8b11e01365ef762afe40186a013e2b77728ea8b
                 <div class="option" data-loads="#option1">option1</div>
                 <div class="option" data-loads="#option2">option2</div>
                 <div class="option" data-loads="#option3">option3</div>
             </div>
 
             <div id="option2" class="options-wrapper">
-                <h4>option2</h4>
+                <h4>Utilities</h4>
                 <div class="option" data-loads="#option1">option1</div>
                 <div class="option" data-loads="#option2">option2</div>
                 <div class="option" data-loads="#option3">option3</div>
             </div>
 
             <div id="option3" class="options-wrapper">
-                <h4>option3</h4>
+                <h4>Consumption</h4>
                 <div class="option" data-loads="#option1">option1</div>
                 <div class="option" data-loads="#option2">option2</div>
                 <div class="option" data-loads="#option3">option3</div>
@@ -55,6 +59,7 @@
 
         </div>
 
+        <div id="take-survey"></div>
         <div id="survey-list"></div>
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/init" src="components/requirejs/require.js"></script>
