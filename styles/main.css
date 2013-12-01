@@ -165,7 +165,7 @@ hr {
 	height: 50px;
 	background-image: url(../img/icons/sedan.svg);
 }
-#start-options > .option:first-child {
+#start-options > .option:first-of-type {
 	margin-left: 0px;
 }
 
