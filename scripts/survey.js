@@ -15,17 +15,19 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
     'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
-		vehicleType = new stepModel({ step: 'vehicle type' }),
-		fuelType = new stepModel({ step: 'fuel type' }),
-    roadType  = new stepModel({ step: 'road type' }),
+		vehicleType       = new stepModel({ step: 'vehicle type' }),
+		fuelType          = new stepModel({ step: 'fuel type' }),
+    roadType          = new stepModel({ step: 'road type' }),
     distanceTraveled  = new stepModel({ step: 'distance traveled' }),
 		specificDistance  = new stepModel({ step: 'specific distance' }),
-		specificVehicle = new stepModel({ step: 'specific vehicle' }),
-		oil = new oilModel,
-		gas = new gasModel,
-		emissions = new emissionsModel,
-		money = new moneyModel,
-		calories = new caloriesModel;
+		specificVehicle   = new stepModel({ step: 'specific vehicle' }),
+    tripFrequency     = new stepModel({ step: 'specific frequency' }),
+    foo               = new stepModel({ step: 'foo' }),
+		oil               = new oilModel,
+		gas               = new gasModel,
+		emissions         = new emissionsModel,
+		money             = new moneyModel,
+		calories          = new caloriesModel;
 
 	survey.set('metrics', [ oil, gas, emissions, money, calories ]);
 
@@ -36,7 +38,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 	// 	STEP 1
 	/////////////////////////////
 
-	
+  /* Vehicle Type
+   * ============ */	
 	vehicleType.set('choices', [
 		new choicesModel({
 			name: 'sedan',
@@ -79,6 +82,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 		}),
 	]);
 
+  /* Fuel Type
+   * ========= */
 	fuelType.set('choices', [
 		new choicesModel({
 			name: 'gas',
@@ -121,6 +126,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 		}),
 	]);
 
+  /* Distance Traveled
+   * ================= */
   distanceTraveled.set('choices', [
     new choicesModel({
       name: '0-5',
@@ -161,6 +168,95 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
       icon: 'sedan-01.svg',
       nextStep: roadType,
     })
+  ]);
+
+  /* Road Type
+   * ========= */
+  roadType.set('choices', [
+    new choicesModel({
+      name: 'Mostly Highway',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: tripFrequency,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: 'Equal Highway / City',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: tripFrequency,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: 'Mostly City',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: tripFrequency,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: 'Specific',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: tripFrequency
+    }),
+  ]);
+
+
+  /* Trip Frequency (how often ride bike)
+   * ==================================== */
+  roadType.set('choices', [
+    new choicesModel({
+      name: '1 day a week',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: foo,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: '3 day a week',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: foo,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: '5 day a week',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: foo,
+      onSelect: function() {
+          oil.activate().addTo(40);
+          money.activate().addTo(40);
+          emissions.activate().addTo(40);
+      }
+    }),
+    new choicesModel({
+      name: 'Specific',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: foo
+    }),
   ]);
 
 
