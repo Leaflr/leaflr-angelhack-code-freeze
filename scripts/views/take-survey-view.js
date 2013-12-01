@@ -5,8 +5,9 @@ define([
 	'views/choices-view',
     'views/custom-step-view',
 	'hbs!tmpl/take-survey',
+  'hbs!tmpl/survey-complete',
     'handlebars',],
-function( Backbone, Communicator, metricSlidersView, choicesView, customStepView, takeSurveyTemp, Handlebars ){
+function( Backbone, Communicator, metricSlidersView, choicesView, customStepView, takeSurveyTemp, surveyComplete, Handlebars ){
 	'use strict';
 
 	return Backbone.Marionette.Layout.extend({
@@ -57,7 +58,7 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
         calories = ((calories * results.freq) * 2);
 
         var data = {};
-        data.oil = oil;
+        data.oil = boi;
         data.money = money;
         data.gas = gallons;
         data.calories = calories;
@@ -68,6 +69,7 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
         console.log('cal', calories);
         console.log('boi', boi);
 
+        this.$el.find('#survey-step').empty().append( surveyComplete(data) )
 
         /* Send data to database
          * ===================== */

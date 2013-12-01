@@ -17,17 +17,25 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
 
 			lastOption = target.attr('id');
 
-			window.setTimeout(function(){
+			
+
+			if (target.hasClass('start-bike-survey')){
+				
+				window.setTimeout(function(){
+				parent.fadeOut(500);
+				window.setTimeout(function(){
+					Communicator.events.trigger('startSurvey', 'bike');
+				}, 500)
+				
+				}, 1000);
+			} else {
+				window.setTimeout(function(){
 				parent.fadeOut(500);
 				window.setTimeout(function(){
 					$(next).fadeIn(900);
 				}, 500)
 				
 			}, 1000);
-
-			if (target.hasClass('start-bike-survey')){
-				Communicator.events.trigger('startSurvey', 'bike');
-				parent.hide();
 			}
 		});
 	}
