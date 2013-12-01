@@ -21,6 +21,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
     distanceTraveled  = new stepModel({ step: 'distance traveled' }),
 		specificDistance  = new stepModel({ step: 'specific distance' }),
 		specificVehicle   = new stepModel({ step: 'specific vehicle' }),
+		userLocation      = new stepModel({ step: 'location' }),
     tripFrequency     = new stepModel({ step: 'specific frequency' }),
     foo               = new stepModel({ step: 'foo' }),
 		oil               = new oilModel,
@@ -89,7 +90,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			name: 'gas',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
-      nextStep: distanceTraveled,
+      nextStep: userLocation,
       onSelect: function() {
         oil.activate().addTo(20);
         money.activate().addTo(20);
@@ -100,7 +101,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			name: 'electric',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
-      nextStep: distanceTraveled,
+      nextStep: userLocation,
       onSelect: function() {
         oil.activate().addTo(5);
         money.activate().addTo(5);
@@ -111,7 +112,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			name: 'deisel',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
-      nextStep: distanceTraveled,
+      nextStep: userLocation,
       onSelect: function() {
         oil.activate().addTo(40);
         money.activate().addTo(40);
@@ -125,6 +126,27 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
       nextStep: specificDistance,
 		}),
 	]);
+
+  /* Location
+   * ======== */
+  userLocation.set('choices', [
+    new choicesModel({
+      name: 'Get Location',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: distanceTraveled,
+      onSelect: function() {
+      }
+    }),
+    new choicesModel({
+      name: 'Enter Zipcode',
+      iconClass: 'sedan',
+      icon: 'sedan-01.svg',
+      nextStep: distanceTraveled,
+      onSelect: function() {
+      }
+    }),
+  ]);
 
   /* Distance Traveled
    * ================= */
