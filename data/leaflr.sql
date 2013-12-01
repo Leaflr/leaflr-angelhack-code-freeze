@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2013 at 05:51 PM
+-- Generation Time: Nov 30, 2013 at 08:21 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.4.10
 
@@ -29,7 +29,7 @@ USE `leaflr`;
 --
 
 DROP TABLE IF EXISTS `survey`;
-CREATE TABLE IF NOT EXISTS `survey` (
+CREATE TABLE `survey` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vehicle_id` int(11) NOT NULL,
   `trip_id` int(11) NOT NULL,
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `survey` (
 --
 
 DROP TABLE IF EXISTS `trip`;
-CREATE TABLE IF NOT EXISTS `trip` (
+CREATE TABLE `trip` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `distance` int(11) NOT NULL,
-  `road_type` varchar(45) NOT NULL,
+  `hwy_per` int(8) NOT NULL COMMENT 'Percent of HWY',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `trip` (
 --
 
 DROP TABLE IF EXISTS `vehicle`;
-CREATE TABLE IF NOT EXISTS `vehicle` (
+CREATE TABLE `vehicle` (
   `id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
   `year` int(11) DEFAULT NULL,
