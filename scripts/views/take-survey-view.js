@@ -68,7 +68,7 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
     		this.currentStep = step;
     		
         if ( step && step.get('template') )
-        view = new customStepView({ model: parent, template: step.get('template') });
+        view = new customStepView({ model: step, template: step.get('template') });
         else
         view = new choicesView({ collection: step });
 		

@@ -23,17 +23,19 @@ if (isset($_GET['year'])) {
 //given year and make, returns all models
 if (isset($_GET['make']) && isset($year)) {
    $make = filter_var($_GET['make'], FILTER_SANITIZE_STRING);
-   $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=".$year."&make=".$make;
+   $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=".$year."&make=".urlencode($make);
 }
 
 //given year, make, and model, returns options
 if (isset($_GET['model']) && isset($make) && isset($year)) {
    $model = filter_var($_GET['model'], FILTER_SANITIZE_STRING);
-   $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=".$year."&make=".$make."&model=".$model;
+   $base_url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?";
+   
+   $url = "year=".$year."&make=".urlencode($make)."&model=".urlencode($model);
+   $url = $base_url.$url;
 
 }
 
 $ret = getCurlData($url);
-
 print json_encode((array)simplexml_load_string($ret));
 ?>
