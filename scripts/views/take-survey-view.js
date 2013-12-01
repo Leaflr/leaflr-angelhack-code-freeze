@@ -37,9 +37,19 @@ function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp
     		this.compileStep();
     	},
 
-        endSurvey: function(){
-            console.log('end survey')
-        },
+      endSurvey: function(){
+        console.log('survey results', this.model.results);
+        /* Send data to database
+         * ===================== */
+        $.ajax({
+          url: 'data/survey_insert.php',
+          type: 'POST',
+          data: this.model.results,
+          onSuccess: function(data) {
+            console.log(data)
+          }
+        });
+      },
 
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,
