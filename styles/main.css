@@ -162,6 +162,10 @@ hr {
 	padding-top:16px;
 	clear:both;
 	color:#505460;
+	position: relative;
+}
+.option .icon-svg {
+	top: 15px;
 }
 .option:hover {
 	cursor: pointer;
