@@ -25,50 +25,90 @@
     <body>
         <div id="wrapper">
             <header>
-                <div class="logo" onclick="location.href='http://leaflr.com';" style="cursor:pointer;">leaflr logo | Conservation Calculator.</div>
                 <div class="page-title">Conservation Calculator.</div>
+                <div class="logo" onclick="location.href='http://leaflr.com';" style="cursor:pointer;">leaflr logo | Conservation Calculator.</div>
             </header>
+            <div id="survey-choices-wrapper">
                 <div id="start-survey">
                     <!-- on load -->
                     <div id="start-options" class="options-wrapper">
                         <h3>The fastest, easiest way to calculate conservation.</h3>
                         <!--<h3>What would you like to calculate?</h3>-->
                         <div class="option transport" data-loads="#option1">
-                            <div class="icon"><img src="img/icons/transport.svg"></div>
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/transport.svg">
                             Transport
                         </div>
                         <div class="option utilities" data-loads="#option2">
-                            <div class="icon"><img src="img/icons/utilities.svg"></div>
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/utilities.svg">
                             Utilities
                         </div>
                         <div class="option consumption" data-loads="#option3">
-                            <div class="icon"><img src="img/icons/consumption.svg"></div>
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/consumption.svg">
                             Consumption
                         </div>
                     </div>   
 
                     <div id="option1" class="options-wrapper">
                         <h3>Which type of transportation?</h3>
-                        <div class="option" data-loads="#option1">Bike</div>
-                        <div class="option" data-loads="#option2">Auto</div>
-                        <div class="option" data-loads="#option3">Transit</div>
+                        <div class="option transport" data-loads="#option1">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/transport.svg">
+                            Bike
+                        </div>
+                        <div class="option utilities" data-loads="#option2">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/utilities.svg">
+                            Auto
+                        </div>
+                        <div class="option consumption" data-loads="#option3">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/consumption.svg">
+                            Transit
+                        </div>
                     </div>
 
                     <div id="option2" class="options-wrapper">
                         <h3>Which type of utility?</h3>
-                        <div class="option" data-loads="#option1">Gas</div>
-                        <div class="option" data-loads="#option2">Water</div>
-                        <div class="option" data-loads="#option3">Electric</div>
+                        <div class="option transport" data-loads="#option1">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/transport.svg">
+                            Gas
+                        </div>
+                        <div class="option utilities" data-loads="#option2">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/utilities.svg">
+                            Water
+                        </div>
+                        <div class="option consumption" data-loads="#option3">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/consumption.svg">
+                            Electric
+                        </div>
                     </div>
 
                     <div id="option3" class="options-wrapper">
                         <h3>Which type of consumption?</h3>
-                        <div class="option" data-loads="#option1">Garbage</div>
-                        <div class="option" data-loads="#option2">Recyclables</div>
-                        <div class="option" data-loads="#option3">Yard Waste</div>
+                        <div class="option transport" data-loads="#option1">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/transport.svg">
+                            Garbage
+                        </div>
+                        <div class="option utilities" data-loads="#option2">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/utilities.svg">
+                            Recyclables
+                        </div>
+                        <div class="option consumption" data-loads="#option3">
+                            <div class="icon"></div>
+                            <img class="icon-svg" src="img/icons/consumption.svg">
+                            Yard Waste
+                        </div>
                     </div>
-
                 </div>
+            </div>
 
                 <hr />
 
@@ -77,7 +117,6 @@
                 <!-- build:js scripts/main.js -->
                 <script data-main="scripts/init" src="components/requirejs/require.js"></script>
                 <!-- endbuild -->
-                <button class="topcoat-button">Topcoat Test</button>
         </div>
     </body>
 </html>
