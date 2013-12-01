@@ -3,8 +3,10 @@ define([
 	'communicator',
 	'views/metric-sliders-view',
 	'views/choices-view',
-	'hbs!tmpl/take-survey'],
-function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp ){
+    'views/custom-step-view',
+	'hbs!tmpl/take-survey',
+    'handlebars',],
+function( Backbone, Communicator, metricSlidersView, choicesView, customStepView, takeSurveyTemp, Handlebars ){
 	'use strict';
 
 	return Backbone.Marionette.Layout.extend({
@@ -54,14 +56,22 @@ function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,
     			step,
+                view,
+                parent,
     			stepsContent = [];
   
     		if ( !step ) step = steps[0].get('choices');
     		else step = step.get('choices');
     		
+            parent = step.parents[0];
     		this.currentStep = step;
     		
-    		this.surveyStep.show( new choicesView({ collection: step }) );
+            if ( parent.get('template') )
+            view = new customStepView({ model: parent, template: parent.get('template') });
+            else
+            view = new choicesView({ collection: step });
+    		
+            this.surveyStep.show( view );
     	}
 
 	});

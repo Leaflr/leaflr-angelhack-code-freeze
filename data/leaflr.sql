@@ -62,7 +62,7 @@ CREATE TABLE `trip` (
 
 DROP TABLE IF EXISTS `vehicle`;
 CREATE TABLE `vehicle` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `vehicle_id` int(11) NOT NULL,
   `year` int(11) DEFAULT NULL,
   `make` varchar(45) DEFAULT NULL,
