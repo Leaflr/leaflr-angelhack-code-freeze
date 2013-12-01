@@ -41,20 +41,32 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			icon: 'sedan-01.svg',
 			nextStep: fuelType,
 			onSelect: function(){
-				oil.activate().addTo(20)
+				oil.activate().addTo(20);
+        money.activate().addTo(20);
+        emissions.activate().addTo(20);
 			}
 		}),
 		new choicesModel({
 			name: 'suv',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
-			nextStep: fuelType
+			nextStep: fuelType,
+      onSelect: function() {
+        oil.activate().addTo(60);
+        money.activate().addTo(60);
+        emissions.activate().addTo(60);
+      }
 		}),
 		new choicesModel({
 			name: 'truck',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
-			nextStep: fuelType
+			nextStep: fuelType,
+      onSelect: function() {
+        oil.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+      }
 		}),
 		new choicesModel({
 			name: 'specific',
