@@ -30,6 +30,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
 	survey.set('steps', [ vehicleType, fuelType, specificVehicle ]);
 
+  survey.results = {};
 
 	/////////////////////////////
 	// 	STEP 1
@@ -44,6 +45,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'sedan.svg',
 			nextStep: fuelType,
 			onSelect: function(){
+        survey.results.vehicleType = this.name;
+
 				gas.activate().addTo(20);
         money.activate().addTo(10);
         emissions.activate().addTo(5);
@@ -55,6 +58,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'suv.svg',
 			nextStep: fuelType,
       onSelect: function() {
+        survey.results.vehicleType = this.name;
+
         gas.activate().addTo(60);
         money.activate().addTo(12);
         emissions.activate().addTo(15);
@@ -66,9 +71,12 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'truck.svg',
 			nextStep: fuelType,
       onSelect: function() {
+        survey.results.vehicleType = this.name;
+
         gas.activate().addTo(40);
         money.activate().addTo(40);
         emissions.activate().addTo(10);
+
       }
 		}),
 		new choicesModel({
@@ -88,6 +96,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'gas.svg',
       nextStep: userLocation,
       onSelect: function() {
+        survey.results.fuelType = this.name;
+
         gas.activate().addTo(20);
         money.activate().addTo(20);
         emissions.activate().addTo(7);
@@ -99,6 +109,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'electric.svg',
       nextStep: userLocation,
       onSelect: function() {
+        survey.results.fuelType = this.name;
+
         gas.activate().addTo(5);
         money.activate().addTo(5);
         emissions.activate().addTo(0);
@@ -110,6 +122,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'deisel.svg',
       nextStep: userLocation,
       onSelect: function() {
+        survey.results.fuelType = this.name;
+
         gas.activate().addTo(40);
         money.activate().addTo(40);
         emissions.activate().addTo(30);
@@ -132,6 +146,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'geocode.svg',
       nextStep: distanceTraveled,
       onSelect: function() {
+        survey.results.location = this.name;
       }
     }),
     new choicesModel({
@@ -140,6 +155,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'zipcode.svg',
       nextStep: distanceTraveled,
       onSelect: function() {
+        survey.results.location = this.name;
       }
     }),
   ]);
@@ -153,6 +169,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '0-5.svg',
       nextStep: roadType,
       onSelect: function() {
+        survey.results.location = this.name;
+
         gas.activate().addTo(10);
         money.activate().addTo(5);
         emissions.activate().addTo(5);
@@ -164,6 +182,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '5-10.svg',
       nextStep: roadType,
       onSelect: function() {
+        survey.results.location = this.name;
+
         gas.activate().addTo(13);
         money.activate().addTo(10);
         emissions.activate().addTo(10);
@@ -175,6 +195,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '10-20.svg',
       nextStep: roadType,
       onSelect: function() {
+        survey.results.location = this.name;
+
         gas.activate().addTo(15);
         money.activate().addTo(15);
         emissions.activate().addTo(15);
@@ -197,6 +219,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'mostlyHighway.svg',
       nextStep: tripFrequency,
       onSelect: function() {
+        survey.results.roadType = this.name;
+
           gas.activate().addTo(40);
           money.activate().addTo(40);
           emissions.activate().addTo(40);
@@ -208,6 +232,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'equalRoad.svg',
       nextStep: tripFrequency,
       onSelect: function() {
+        survey.results.roadType = this.name;
+
           gas.activate().addTo(40);
           money.activate().addTo(40);
           emissions.activate().addTo(40);
@@ -219,6 +245,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'mostlyCity.svg',
       nextStep: tripFrequency,
       onSelect: function() {
+        survey.results.roadType = this.name;
+
           gas.activate().addTo(40);
           money.activate().addTo(40);
           emissions.activate().addTo(40);
@@ -235,38 +263,46 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
   /* Trip Frequency (how often ride bike)
    * ==================================== */
-  roadType.set('choices', [
+  tripFrequency.set('choices', [
     new choicesModel({
       name: '1 day a week',
       iconClass: '1-day',
       icon: '1-day.svg',
-      nextStep: foo,
+      nextStep: end,
       onSelect: function() {
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+        survey.results.tripFreq = this.name;
+
+        gas.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
+
+          console.log('survey results', survey.results);
       }
     }),
     new choicesModel({
       name: '3 days a week',
       iconClass: '3-day',
       icon: '3-day.svg',
-      nextStep: foo,
+      nextStep: end,
       onSelect: function() {
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+        survey.results.tripFreq = this.name;
+
+        gas.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
       }
     }),
     new choicesModel({
       name: '5 days a week',
       iconClass: '5-day',
       icon: '5-day.svg',
-      nextStep: foo,
+      nextStep: end,
       onSelect: function() {
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+        survey.results.tripFreq = this.name;
+
+        gas.activate().addTo(40);
+        money.activate().addTo(40);
+        emissions.activate().addTo(40);
       }
     }),
     new choicesModel({
