@@ -5,7 +5,7 @@
 
 
 html {
-	padding: 20px;
+	padding: 40px;
 }
 
 body {
@@ -19,7 +19,7 @@ header {
 	background-color: #F9FAFC;
 	border-bottom: 2px solid #D4D5D9;
 	padding-top: 16px;
-	padding-left: 90px;
+	padding-left: 5%;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box; /* Opera/IE 8+ */
@@ -119,7 +119,7 @@ a:hover {
 ============================*/
 
 hr {
-   border: 1px dashed #C0C4D0;
+   border-top: 1px dashed #C0C4D0;
    margin-top: 20px;
    margin-bottom: 40px;
    clear: both;
@@ -148,11 +148,12 @@ hr {
 .option {
 	display: inline-block;
 	width: 30%;
+	height: 200px;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:18px;
 	text-align: center;
 	padding-top:16px;
-	margin-left: 2.5%;
+	margin-left: 5%;
 	clear:both;
 	color:#505460;
 }
@@ -160,7 +161,12 @@ hr {
 	cursor: pointer;
 }
 .option-transport {
+	width: 50px;
+	height: 50px;
 	background-image: url(../img/icons/sedan.svg);
+}
+#start-options > .option:first-child {
+	margin-left: 0px;
 }
 
 
