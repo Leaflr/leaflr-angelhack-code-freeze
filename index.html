@@ -24,47 +24,49 @@
 
     <body>
         <div id="wrapper">
-            <div class="logo">leaflr logo</div>
-            <div id="start-survey">
-                <!-- on load -->
-                <div id="start-options" class="options-wrapper">
-                    <h3>What would you like to calculate?</h3>
-                    <div class="option transport" data-loads="#option1">Transport</div>
-                    <div class="option utilities" data-loads="#option2">Utilities</div>
-                    <div class="option consumption" data-loads="#option3">Consumption</div>
-                </div>   
-                
+            <header>
+                <div class="logo">leaflr logo | Conservation Calculator.</div>
+            </header>
+                <div id="start-survey">
+                    <!-- on load -->
+                    <div id="start-options" class="options-wrapper">
+                        <h3>What would you like to calculate?</h3>
+                        <div class="option transport" data-loads="#option1">Transport</div>
+                        <div class="option utilities" data-loads="#option2">Utilities</div>
+                        <div class="option consumption" data-loads="#option3">Consumption</div>
+                    </div>   
+
+                    <div id="option1" class="options-wrapper">
+                        <h3>Which type of transportation?</h3>
+                        <div class="option" data-loads="#option1">Bike</div>
+                        <div class="option" data-loads="#option2">Auto</div>
+                        <div class="option" data-loads="#option3">Transit</div>
+                    </div>
+
+                    <div id="option2" class="options-wrapper">
+                        <h3>Which type of utility?</h3>
+                        <div class="option" data-loads="#option1">Gas</div>
+                        <div class="option" data-loads="#option2">Water</div>
+                        <div class="option" data-loads="#option3">Electric</div>
+                    </div>
+
+                    <div id="option3" class="options-wrapper">
+                        <h3>Which type of consumption?</h3>
+                        <div class="option" data-loads="#option1">Garbage</div>
+                        <div class="option" data-loads="#option2">Recyclables</div>
+                        <div class="option" data-loads="#option3">Yard Waste</div>
+                    </div>
+
+                </div>
+
                 <hr />
-
-                <div id="option1" class="options-wrapper">
-                    <h3>Which type of transportation?</h3>
-                    <div class="option" data-loads="#option1">Bike</div>
-                    <div class="option" data-loads="#option2">Auto</div>
-                    <div class="option" data-loads="#option3">Transit</div>
-                </div>
-
-                <div id="option2" class="options-wrapper">
-                    <h3>Which type of utility?</h3>
-                    <div class="option" data-loads="#option1">Gas</div>
-                    <div class="option" data-loads="#option2">Water</div>
-                    <div class="option" data-loads="#option3">Electric</div>
-                </div>
-
-                <div id="option3" class="options-wrapper">
-                    <h3>Which type of consumption?</h3>
-                    <div class="option" data-loads="#option1">Garbage</div>
-                    <div class="option" data-loads="#option2">Recyclables</div>
-                    <div class="option" data-loads="#option3">Yard Waste</div>
-                </div>
-
-            </div>
-
-            <div id="take-survey"></div>
-            <div id="survey-list"></div>
-            <!-- build:js scripts/main.js -->
-            <script data-main="scripts/init" src="components/requirejs/require.js"></script>
-            <!-- endbuild -->
-            <button class="topcoat-button">Topcoat Test</button>
+                
+                <div id="take-survey"></div>
+                <div id="survey-list"></div>
+                <!-- build:js scripts/main.js -->
+                <script data-main="scripts/init" src="components/requirejs/require.js"></script>
+                <!-- endbuild -->
+                <button class="topcoat-button">Topcoat Test</button>
         </div>
     </body>
 </html>

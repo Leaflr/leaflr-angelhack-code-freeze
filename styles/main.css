@@ -5,18 +5,43 @@
 
 
 html {
-	background-color: #3C5363;
+	padding: 20px;
 }
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
+	background-color: #2B3E4F;
+}
+
+header {
+	height: 82px;
+	width: 100%;
+	background-color: #F9FAFC;
+	border-bottom: 2px solid #D4D5D9;
+	padding-top: 16px;
+	padding-left: 90px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 #wrapper {
 	margin: 0 auto;
 	max-width: 960px;
-	background-color: #F9FAFC;
-	padding: 20px;
+	background-color: #F0F1F5;
+	margin-top: 20px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 .logo {
@@ -54,6 +79,7 @@ h3 {
 	font-family: 'Arvo', serif;
 	font-weight: 400;
 	font-size:24px;
+	text-align: center;
 	color:#505460;
 	line-height:1.6em;
 	letter-spacing:-0.25px;
@@ -61,19 +87,13 @@ h3 {
 	}
 	
 h4 {
-	font-family: 'Arvo', serif;
-	font-size:18px;
-	line-height:1.6em;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size:16px;
 	padding-top:16px;
 	letter-spacing:5px;
 	clear:both;
 	color:#505460;
-	text-transform:uppercase;
 	}
-	
-hr {
-   border: 1px dashed #C0C4D0;
-}
 
 p {
 	font-family:"Arvo", sans-serif;
@@ -99,20 +119,27 @@ a:hover {
 ============================*/
 
 hr {
-	border:none;
-	border-top: 1px solid #505460;
-	clear: both;
-	padding-top: 18px;
-	height: 15px;
-	background-image:url(../img/bg/paper.jpg);
-	}
+   border: 1px dashed #C0C4D0;
+   margin-top: 20px;
+   margin-bottom: 40px;
+   clear: both;
+}
 
 
 /* SURVEY CHOICES
 ============================*/
 
+#start-survey {
+	width: 100%;
+	height: auto;
+}
+
 #start-options {
 	display: block;
+	padding: 0 90px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
 .options-wrapper {
 	display: none;
@@ -121,9 +148,19 @@ hr {
 .option {
 	display: inline-block;
 	width: 30%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size:18px;
+	text-align: center;
+	padding-top:16px;
+	margin-left: 2.5%;
+	clear:both;
+	color:#505460;
 }
 .option:hover {
 	cursor: pointer;
+}
+.option-transport {
+	background-image: url(../img/icons/sedan.svg);
 }
 
 
