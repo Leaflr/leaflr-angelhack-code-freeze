@@ -1,7 +1,10 @@
 #survey-step {
 	margin-top: 40px;
 	position: relative;
-	/*right: 3000px;*/
+}
+#metric-sliders, #survey-step {
+	padding: 0 5%;
+
 }
 
 .choice {
@@ -72,6 +75,7 @@
 .checked.icon:after {
 	background-color: transparent;
 }
+
 .fade-out {
 	-webkit-animation: fade 400ms linear;
 	-webkit-animation-delay: 800ms;
@@ -108,9 +112,11 @@
 	margin: 0 auto 5px;
 	position: relative;
 	text-align: center;
+	border-radius: 10px;
 }
 .metric-sliders .value {
 	height: 20px;
+	border-radius: 10px;
 	background-color: rgba(0,0,0,.15);
 	position: absolute;
 	z-index: 5;
