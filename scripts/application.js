@@ -18,7 +18,15 @@ function( Backbone, Communicator, surveysCollection, surveyListView ) {
 
 	/* Add initializers here */
 	App.addInitializer( function () {
+		// list of taken surveys
 		App.surveys.show( new surveyListView({ collection: surveysCollection }) );
+
+		// start survey
+		Communicator.events.on('startSurvey', function( name ){
+			var survey = surveysCollection.find(function(model){
+				return model.get('name') == name;
+			});
+		});
 	});
 	
 	return App;

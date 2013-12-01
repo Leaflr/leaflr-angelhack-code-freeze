@@ -14,7 +14,7 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
 			$(next).show();
 
 			if (target.hasClass('start-bike-survey'))
-			Communicator.events.trigger('start-survey', 'bike');
+			Communicator.events.trigger('startSurvey', 'bike');
 			
 		});
 	}
