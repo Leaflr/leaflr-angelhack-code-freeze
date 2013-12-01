@@ -109,16 +109,17 @@
 }
 .metric-sliders .slider {
 	width: 100%;
-	height: 20px;
+	height: 16px;
 	background-color: #D4D5D9;
-	margin: 0 auto 5px;
+	margin: 0 auto 8px;
 	position: relative;
 	text-align: center;
+	text-indent: -99999px;
 	border-radius: 10px;
 }
 .metric-sliders .value {
-	height: 20px;
-	border-radius: 10px;
+	height: 16px;
+	border-radius: 8px;
 	background-color: rgba(0,0,0,.15);
 	position: absolute;
 	z-index: 5;
