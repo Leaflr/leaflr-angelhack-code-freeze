@@ -257,6 +257,9 @@ hr {
 	.page-title {
 		display: none;
 	}
+	h3 {
+		font-size: 1em;
+	}
 }
 
 
