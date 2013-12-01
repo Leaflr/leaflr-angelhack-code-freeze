@@ -57,6 +57,22 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			nextStep: fuelType,
 			onSelect: function(){
         survey.results.carvid = 17760;
+        $.ajax({
+          url: 'data/vehicle.php?vid=17760',
+          success: function(data) {
+            data = eval('('+data+')');
+
+            console.log('FULL', data);
+            survey.results.vehicle_nonspec = 1;
+            if(option != null) {
+              survey.results.carvid = option;
+            }
+            survey.results.carmpghwy  = data.highway08;
+            survey.results.carmpgcity = data.city08;
+            survey.results.carco2      = data.co2TailpipeGpm;
+
+          }
+        });
 
 				gas.activate().addTo(20);
         money.activate().addTo(10);
@@ -70,6 +86,21 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			nextStep: fuelType,
       onSelect: function() {
         survey.results.carvid = 18068;
+        $.ajax({
+          url: 'data/vehicle.php?vid=18068',
+          success: function(data) {
+            data = eval('('+data+')');
+
+            console.log('FULL', data);
+            survey.results.vehicle_nonspec = 1;
+            if(option != null) {
+              survey.results.carvid = option;
+            }
+            survey.results.carmpghwy  = data.highway08;
+            survey.results.carmpgcity = data.city08;
+            survey.results.carco2      = data.co2TailpipeGpm;
+          }
+        });
 
         gas.activate().addTo(60);
         money.activate().addTo(12);
@@ -83,6 +114,22 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			nextStep: fuelType,
       onSelect: function() {
         survey.results.carvid = 17893;
+        $.ajax({
+          url: 'data/vehicle.php?vid=17893',
+          success: function(data) {
+            data = eval('('+data+')');
+
+            console.log('FULL', data);
+            self.model.collection.parents[0].results.vehicle_nonspec = 1;
+            if(option != null) {
+              survey.results.carvid = option;
+            }
+            survey.results.carmpghwy  = data.highway08;
+            survey.results.carmpgcity = data.city08;
+            survey.results.carco2      = data.co2TailpipeGpm;
+
+          }
+        });
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
