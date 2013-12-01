@@ -41,6 +41,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
   ]);
 
   survey.results = {};
+  survey.results.vehicle_nonspec = 0;
 
 	/////////////////////////////
 	// 	STEP 1
@@ -99,37 +100,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
   specificVehicle.set({
     template: specificVehicleTemp,
-    nextStep: fuelType
+    nextStep: fuelType, 
   });
-/*
-  /* Vehicle Year
-   * ============ 
-  vehicleYear.set({
-    template: vYearTemplate,
-    nextStep: vehicleMake
-  });
-
-  /* Vehicle Make
-   * ============/
-  vehicleMake.set({
-    template: vMakeTemplate,
-    nextStep: vehicleModel
-  });
-
-  /* Vehicle Model 
-   * ============ 
-  vehicleModel.set({
-    template: vModelTemplate,
-    nextStep: vehicleOption 
-  });
-
-  /* Vehicle Option
-   * ============ 
-  vehicleOption.set({
-    template: vOptionTemplate,
-    nextStep: fuelType
-  });
-*/
 
   /* Fuel Type
    * ========= */
@@ -140,7 +112,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'gas.svg',
       nextStep: userLocation,
       onSelect: function() {
-        survey.results.fuelType = this.name;
+        survey.results.carfueltype = this.name;
 
         gas.activate().addTo(20);
         money.activate().addTo(20);
@@ -153,7 +125,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 			icon: 'electric.svg',
       nextStep: userLocation,
       onSelect: function() {
-        survey.results.fuelType = this.name;
+        survey.results.carfueltype = this.name;
 
         gas.activate().addTo(5);
         money.activate().addTo(5);
@@ -161,12 +133,12 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       }
 		}),
 		new choicesModel({
-			name: 'deisel',
-			iconClass: 'deisel',
-			icon: 'deisel.svg',
+			name: 'Diesel',
+			iconClass: 'diesel',
+			icon: 'diesel.svg',
       nextStep: userLocation,
       onSelect: function() {
-        survey.results.fuelType = this.name;
+        survey.results.carfueltype = this.name;
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
@@ -195,6 +167,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
             var lat = pos.coords.latitude;
             var lng = pos.coords.longitude;
             survey.results.loc = lat+','+lng;
+            survey.results.zip = '95811';
             /* Grab zipcode from google api
              * ============================ */
              /*
@@ -236,7 +209,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '0-5.svg',
       nextStep: roadType,
       onSelect: function() {
-        survey.results.distance = this.name;
+        survey.results.tripdistance = 3;
 
         gas.activate().addTo(10);
         money.activate().addTo(5);
@@ -244,12 +217,12 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       }
     }),
     new choicesModel({
-      name: '5-10',
+      name: '6-9',
       iconClass: '5-10',
-      icon: '5-10.svg',
+      icon: '6-9.svg',
       nextStep: roadType,
       onSelect: function() {
-        survey.results.distance = this.name;
+        survey.results.tripdistance = 7;
 
         gas.activate().addTo(13);
         money.activate().addTo(10);
@@ -257,12 +230,12 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       }
     }),
     new choicesModel({
-      name: '10-20',
-      iconClass: '10-20',
-      icon: '10-20.svg',
+      name: '10',
+      iconClass: '10',
+      icon: '10.svg',
       nextStep: roadType,
       onSelect: function() {
-        survey.results.distance = this.name;
+        survey.results.tripdistance = 13;
 
         gas.activate().addTo(15);
         money.activate().addTo(15);
@@ -286,7 +259,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'mostlyHighway.svg',
       nextStep: tripFrequency,
       onSelect: function() {
-        survey.results.roadType = this.name;
+        survey.results.hwyper = 80;
 
           gas.activate().addTo(40);
           money.activate().addTo(40);
@@ -299,7 +272,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'equalRoad.svg',
       nextStep: tripFrequency,
       onSelect: function() {
-        survey.results.roadType = this.name;
+        survey.results.hwyper = 50;
 
           gas.activate().addTo(40);
           money.activate().addTo(40);
@@ -312,7 +285,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: 'mostlyCity.svg',
       nextStep: tripFrequency,
       onSelect: function() {
-        survey.results.roadType = this.name;
+        survey.results.hwyper = 80;
 
           gas.activate().addTo(40);
           money.activate().addTo(40);
@@ -337,7 +310,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '1-day.svg',
       nextStep: 'end',
       onSelect: function() {
-        survey.results.tripFreq = this.name;
+        survey.results.freq = 1;
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
@@ -350,7 +323,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '3-day.svg',
       nextStep: 'end',
       onSelect: function() {
-        survey.results.tripFreq = this.name;
+        survey.results.freq = 3;
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
@@ -363,7 +336,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       icon: '5-day.svg',
       nextStep: 'end',
       onSelect: function() {
-        survey.results.tripFreq = this.name;
+        survey.results.freq = 5;
 
         gas.activate().addTo(40);
         money.activate().addTo(40);
