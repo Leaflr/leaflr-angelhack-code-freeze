@@ -6,7 +6,10 @@ function( Backbone, Communicator, metricSliderTemp ){
 	'use strict';
 
 	return Backbone.Marionette.ItemView.extend({
-  		className: 'slider metric-slider-inner',
+  		className: function(){
+  			var name = this.model.get('name');
+  			return 'slider metric-slider-inner ' + name;
+  		},
   		template: metricSliderTemp,
   		initialize: function(){
   			this.listenTo(this.model, 'change:active', this.activate);
