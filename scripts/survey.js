@@ -10,7 +10,7 @@ define([
   'hbs!tmpl/custom-step-vehicle'
 ],
 
-function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel, emissionsModel, moneyModel, specificVehicle) {
+function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel, emissionsModel, moneyModel, specificVehicleTemp) {
     'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
@@ -98,7 +98,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 	]);
 
   specificVehicle.set({
-    template: specificVehicle,
+    template: specificVehicleTemp,
     nextStep: fuelType
   });
 /*

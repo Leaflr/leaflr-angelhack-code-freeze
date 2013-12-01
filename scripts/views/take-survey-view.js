@@ -55,23 +55,24 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
 
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,
-    			step,
+    			  step,
                 view,
                 parent,
     			stepsContent = [];
-  
+        console.log(step)
+
     		if ( !step ) step = steps[0].get('choices');
+        else if ( step.get('template') ) step = step;
     		else step = step.get('choices');
-    		
-            parent = step.parents[0];
+    	
     		this.currentStep = step;
     		
-            if ( parent.get('template') )
-            view = new customStepView({ model: parent, template: parent.get('template') });
-            else
-            view = new choicesView({ collection: step });
-    		
-            this.surveyStep.show( view );
+        if ( step && step.get('template') )
+        view = new customStepView({ model: parent, template: step.get('template') });
+        else
+        view = new choicesView({ collection: step });
+		
+        this.surveyStep.show( view );
     	}
 
 	});
