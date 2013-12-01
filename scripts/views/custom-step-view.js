@@ -76,8 +76,6 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
           url: 'data/vehicle.php?year='+year+'&make='+make+'&model='+model,
           success: function(data) {
             data = eval('('+data+')');
-            console.log('DATA', data.menuItem);
-            console.log('CHECK', data.menuItem.length);
             // check single.
           if(data.menuItem.length > 0) {
             $('.options').show();
@@ -89,28 +87,38 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
               $(opt).appendTo($('.options'));
             });
           } else {
-            console.log('NO OPTIONS');
+            self.model.collection.parents[0].results.car_id = data.menuItem.value;
             self.vehicleDone();
           } //end else
           }
         });
     },
     vehicleDone: function() {
+      var self = this;
       var year = $('.year').val();
       var make = $('.make').val();
       var model = $('.model').val();
       var option = $('.options').val();
-      var self = this;
+      if(option == null) {
+        option = self.model.collection.parents[0].results.car_id;
+      }
+
         $.ajax({
           url: 'data/vehicle.php?vid='+option,
           success: function(data) {
             data = eval('('+data+')');
 
-            console.log('TEST', self.model);
-            self.model.results.car_year = year;
-            self.model.results.car_make = make;
-            self.model.results.car_model = model;
-            self.model.results.car_id = option;
+            console.log('FULL', data);
+            self.model.collection.parents[0].results.car_year = year;
+            self.model.collection.parents[0].results.car_make = make;
+            self.model.collection.parents[0].results.car_model = model;
+            if(option != null) {
+              self.model.collection.parents[0].results.car_id = option;
+            }
+            self.model.collection.parents[0].results.mph_hwy  = data.highway08;
+            self.model.collection.parents[0].results.mph_city = data.city08;
+            self.model.collection.parents[0].results.co2      = data.co2TailpipeGpm;
+
 
             self.triggerNext();
           }
