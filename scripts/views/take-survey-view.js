@@ -2,13 +2,17 @@ define([
 	'backbone',
 	'communicator',
 	'views/metric-sliders-view',
-	'hbs!tmpl/take-survey',
-	'hbs!tmpl/step-single-option'],
-function( Backbone, Communicator, metricSlidersView, takeSurveyTemp, singleOptionTemp ){
+	'views/choices-view',
+	'hbs!tmpl/take-survey'],
+function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp ){
 	'use strict';
 
 	return Backbone.Marionette.Layout.extend({
   		template: takeSurveyTemp,
+
+  		events: {
+  			
+  		},
 
     	regions: {
     	  metricSliders: "#metric-sliders",
@@ -16,6 +20,10 @@ function( Backbone, Communicator, metricSlidersView, takeSurveyTemp, singleOptio
     	},
 
     	initialize: function(){
+    		var self = this;
+    		Communicator.events.on('nextStep', function(model){
+    			self.compileStep( model )
+    		});
     	},
 
     	onRender: function(){
@@ -33,20 +41,13 @@ function( Backbone, Communicator, metricSlidersView, takeSurveyTemp, singleOptio
     			step,
     			stepsContent = [];
   
-    		if ( !step )
-    		step = steps[0];
-    		else 
-    		step = steps.find(function(model){
-    			return model.get('step') == step;
-    		});
+    		if ( !step ) step = steps[0];
 
     		step = step.get('choices');
-
-    		for (var i = 0; i < step.length; i++){
-    			stepsContent.push( singleOptionTemp(step[i]) );	
-    		}
     		
-    		this.$el.find('#survey-step').append( stepsContent.join('') );
+    		this.currentStep = step;
+    		
+    		this.surveyStep.show( new choicesView({ collection: step }) );
     	}
 
 	});

@@ -1,9 +1,10 @@
 define([
 	'backbone',
 	'communicator',
+	'models/choices-model',
 	'associations'
 ],
-function( Backbone, Communicator ) {
+function( Backbone, Communicator, choicesModel ) {
     'use strict';
 
 	return Backbone.AssociatedModel.extend({
@@ -11,7 +12,12 @@ function( Backbone, Communicator ) {
 			name: '',
 			template: ''
 		},
-		onOpen: function(){},
-		onSubmit: function(){}
+		relations: [
+	        {
+	            type: Backbone.Many, 
+	            key: 'choices', 
+	            relatedModel: choicesModel
+	        }
+    	]
 	});
 });
