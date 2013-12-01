@@ -5,7 +5,7 @@
 
 
 html {
-	padding: 40px;
+	padding: 20px 40px;
 }
 
 body {
@@ -37,7 +37,7 @@ header {
 #wrapper {
 	margin: 0 auto;
 	max-width: 960px;
-	height: 100%;
+	min-height: 110%;
 	background-color: #F0F1F5;
 	margin-top: 20px;
 	padding-bottom: 20px;
@@ -47,6 +47,7 @@ header {
 	-moz-border-radius-topright: 10px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	border-radius: 10px;
 }
 
 .logo {
@@ -228,14 +229,16 @@ hr {
 #take-survey {
 	overflow: auto;
 }
-
+.choice {
+	margin-bottom: 30px;
+}
 
 
 @media only screen and (max-width: 920px){
 	.option, .choice {
 		position: relative;
 		width: 50%;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 	}
 	.options-wrapper {
 		padding: 0 60px;
