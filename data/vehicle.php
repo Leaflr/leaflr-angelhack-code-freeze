@@ -3,18 +3,16 @@ include("../lib/inc.php");
 
 /* Return fueleconomy.gov data based on vehicle id
  * ====================================================================== */
-$vid = filter_var($_GET['vid'], FILTER_VALIDATE_INT);
-$year = filter_var($_GET['year'], FILTER_VALIDATE_INT);
-$make = $_GET['make'];
-$model = $_GET['model'];
 
-if (isset($vid)) {
+if (isset($_GET['vid'])) {
+   $vid = filter_var($_GET['vid'], FILTER_VALIDATE_INT);
    $url = "http://www.fueleconomy.gov/ws/rest/vehicle/" . $vid;
 }
 
 //given year, returns all makes for that year
 //unless year = 0, then all 
-if (isset($year)) {
+if (isset($_GET['year'])) {
+   $year = filter_var($_GET['year'], FILTER_VALIDATE_INT);
    if($year == 0){
       $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/year";
    } else {
@@ -23,12 +21,14 @@ if (isset($year)) {
 }
 
 //given year and make, returns all models
-if (isset($make) && isset($year)) {
+if (isset($_GET['make']) && isset($year)) {
+   $make = filter_var($_GET['make'], FILTER_SANITIZE_STRING);
    $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=".$year."&make=".$make;
 }
 
 //given year, make, and model, returns options
-if (isset($model) && isset($make) && isset($year)) {
+if (isset($_GET['model']) && isset($make) && isset($year)) {
+   $model = filter_var($_GET['model'], FILTER_SANITIZE_STRING);
    $url = "http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=".$year."&make=".$make."&model=".$model;
 
 }
