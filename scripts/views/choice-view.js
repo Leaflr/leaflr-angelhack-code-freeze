@@ -13,7 +13,10 @@ function( Backbone, Communicator, choiceTemp ){
   		},
 
   		selected: function(){
-  			Communicator.events.trigger('nextStep', this.model);
+  			Communicator.events.trigger('nextStep', this.model.get('nextStep') );
+
+  			if (this.model.get('onSelect'))
+  			this.model.attributes.onSelect();
   		}
 	});
 });

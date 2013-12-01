@@ -45,19 +45,19 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 			}
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'suv',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
 			nextStep: fuelType
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'truck',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
 			nextStep: fuelType
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'specific',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg',
 			nextStep: specificVehicle
@@ -66,22 +66,22 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, calories
 
 	fuelType.set('choices', [
 		new choicesModel({
-			name: 'sedan',
+			name: 'gas',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg'
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'electric',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg'
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'deisel',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg'
 		}),
 		new choicesModel({
-			name: 'sedan',
+			name: 'hybrid',
 			iconClass: 'sedan',
 			icon: 'sedan-01.svg'
 		}),
