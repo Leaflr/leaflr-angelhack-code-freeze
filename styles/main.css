@@ -20,6 +20,7 @@ header {
 	border-bottom: 2px solid #D4D5D9;
 	padding-top: 16px;
 	padding-left: 5%;
+	padding-right: 5%;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box; /* Opera/IE 8+ */
@@ -52,6 +53,14 @@ header {
 	text-indent: -99999px;
 }
 
+.page-title {
+	font-family: 'Arvo', serif;
+	font-weight: 400;
+	font-size:24px;
+	color: #C8D1D8;
+	float: right;
+}
+
 /* TYPOGRAPHY
 ============================*/
 
@@ -59,7 +68,6 @@ h1 {
 	font-family: 'Arvo', serif;
 	font-size:24px;
 	color: #505460;
-	line-height: 1.2em;
 	letter-spacing: 5px;
 	text-transform: uppercase;
 	padding-top: 16px;
@@ -69,7 +77,6 @@ h2 {
 	font-family: 'Arvo', serif;
 	font-size:22px;
 	color:#505460;
-	line-height:1.6em;
 	padding-top:16px;
 	letter-spacing:5px;
 	text-transform:uppercase;
@@ -136,7 +143,7 @@ hr {
 
 #start-options {
 	display: block;
-	padding: 0 90px;
+	padding: 0 120px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box; /* Opera/IE 8+ */
@@ -153,7 +160,6 @@ hr {
 	font-size:18px;
 	text-align: center;
 	padding-top:16px;
-	margin-left: 5%;
 	clear:both;
 	color:#505460;
 }
@@ -163,7 +169,7 @@ hr {
 .option-transport {
 	width: 50px;
 	height: 50px;
-	background-image: url(../img/icons/sedan.svg);
+	background-image: url(../img/icons/transport.svg);
 }
 #start-options > .option:first-of-type {
 	margin-left: 0px;
