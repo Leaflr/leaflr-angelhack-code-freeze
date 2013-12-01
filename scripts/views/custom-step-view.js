@@ -5,6 +5,9 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
 		events: {
 			'click .submit':'triggerNext'
 		},
+		initialize: function(){
+			console.log(this)
+		},
 		triggerNext: function(){
 			Communicator.events.trigger('nextStep', this.model.get('nextStep'))
 		}
