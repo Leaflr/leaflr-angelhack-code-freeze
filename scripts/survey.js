@@ -51,8 +51,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		}),
 		new choicesModel({
 			name: 'suv',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'suv',
+			icon: 'suv.svg',
 			nextStep: fuelType,
       onSelect: function() {
         gas.activate().addTo(60);
@@ -62,8 +62,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		}),
 		new choicesModel({
 			name: 'truck',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'truck',
+			icon: 'truck.svg',
 			nextStep: fuelType,
       onSelect: function() {
         gas.activate().addTo(40);
@@ -74,7 +74,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		new choicesModel({
 			name: 'specific',
 			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			icon: 'specifcVehicle.svg',
 			nextStep: specificVehicle
 		}),
 	]);
@@ -84,8 +84,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 	fuelType.set('choices', [
 		new choicesModel({
 			name: 'gas',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'gas',
+			icon: 'gas.svg',
       nextStep: userLocation,
       onSelect: function() {
         gas.activate().addTo(20);
@@ -95,8 +95,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		}),
 		new choicesModel({
 			name: 'electric',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'electric',
+			icon: 'electric.svg',
       nextStep: userLocation,
       onSelect: function() {
         gas.activate().addTo(5);
@@ -106,8 +106,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		}),
 		new choicesModel({
 			name: 'deisel',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'deisel',
+			icon: 'deisel.svg',
       nextStep: userLocation,
       onSelect: function() {
         gas.activate().addTo(40);
@@ -117,8 +117,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 		}),
 		new choicesModel({
 			name: 'hybrid',
-			iconClass: 'sedan',
-			icon: 'sedan.svg',
+			iconClass: 'hybrid',
+			icon: 'hybrid.svg',
       nextStep: specificDistance,
 		}),
 	]);
@@ -128,16 +128,16 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
   userLocation.set('choices', [
     new choicesModel({
       name: 'Get Location',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'geocode',
+      icon: 'geocode.svg',
       nextStep: distanceTraveled,
       onSelect: function() {
       }
     }),
     new choicesModel({
       name: 'Enter Zipcode',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'zipcode',
+      icon: 'zipcode.svg',
       nextStep: distanceTraveled,
       onSelect: function() {
       }
@@ -149,8 +149,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
   distanceTraveled.set('choices', [
     new choicesModel({
       name: '0-5',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: '0-5',
+      icon: '0-5.svg',
       nextStep: roadType,
       onSelect: function() {
         gas.activate().addTo(10);
@@ -160,8 +160,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: '5-10',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: '5-10',
+      icon: '5-10.svg',
       nextStep: roadType,
       onSelect: function() {
         gas.activate().addTo(13);
@@ -171,8 +171,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: '10-20',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: '10-20',
+      icon: '10-20.svg',
       nextStep: roadType,
       onSelect: function() {
         gas.activate().addTo(15);
@@ -182,8 +182,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: 'Specific',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'specificDistance',
+      icon: 'specificDistance.svg',
       nextStep: roadType,
     })
   ]);
@@ -193,8 +193,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
   roadType.set('choices', [
     new choicesModel({
       name: 'Mostly Highway',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'mostlyHighway',
+      icon: 'mostlyHighway.svg',
       nextStep: tripFrequency,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -204,8 +204,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: 'Equal Highway / City',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'equalRoad',
+      icon: 'equalRoad.svg',
       nextStep: tripFrequency,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -215,8 +215,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: 'Mostly City',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'mostlyCity',
+      icon: 'mostlyCity.svg',
       nextStep: tripFrequency,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -226,8 +226,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: 'Specific',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'specificRoad',
+      icon: 'specificRoad.svg',
       nextStep: tripFrequency
     }),
   ]);
@@ -238,8 +238,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
   roadType.set('choices', [
     new choicesModel({
       name: '1 day a week',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: '1-day',
+      icon: '1-day.svg',
       nextStep: foo,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -248,9 +248,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       }
     }),
     new choicesModel({
-      name: '3 day a week',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      name: '3 days a week',
+      iconClass: '3-day',
+      icon: '3-day.svg',
       nextStep: foo,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -259,9 +259,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       }
     }),
     new choicesModel({
-      name: '5 day a week',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      name: '5 days a week',
+      iconClass: '5-day',
+      icon: '5-day.svg',
       nextStep: foo,
       onSelect: function() {
           gas.activate().addTo(40);
@@ -271,8 +271,8 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     }),
     new choicesModel({
       name: 'Specific',
-      iconClass: 'sedan',
-      icon: 'sedan.svg',
+      iconClass: 'specificDays',
+      icon: 'specificDays.svg',
       nextStep: foo
     }),
   ]);
