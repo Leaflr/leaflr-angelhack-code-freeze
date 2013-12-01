@@ -19,12 +19,16 @@ define(['backbone','communicator'], function( Backbone, Communicator ){
 
 			window.setTimeout(function(){
 				parent.fadeOut(500);
-				$(next).fadeIn(900);
+				window.setTimeout(function(){
+					$(next).fadeIn(900);
+				}, 500)
+				
 			}, 1000);
 
-			if (target.hasClass('start-bike-survey'))
-			Communicator.events.trigger('startSurvey', 'bike');
-			
+			if (target.hasClass('start-bike-survey')){
+				Communicator.events.trigger('startSurvey', 'bike');
+				parent.hide();
+			}
 		});
 	}
 
