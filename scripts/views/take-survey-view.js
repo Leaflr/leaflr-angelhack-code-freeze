@@ -22,8 +22,8 @@ function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp
     	initialize: function(){
     		var self = this;
     		Communicator.events.on('nextStep', function(model){
-    			self.compileStep( model )
-    			console.log(model)
+    			if ( model == 'end' ) self.endSurvey();
+                else self.compileStep( model );
     		});
     	},
 
@@ -36,6 +36,10 @@ function( Backbone, Communicator, metricSlidersView, choicesView, takeSurveyTemp
     		// compile first step
     		this.compileStep();
     	},
+
+        endSurvey: function(){
+            console.log('end survey')
+        },
 
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,
