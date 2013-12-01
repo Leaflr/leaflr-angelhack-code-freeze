@@ -166,6 +166,7 @@ hr {
 }
 .option .icon-svg {
 	top: 15px;
+	color:#F39C12;
 }
 .option:hover {
 	cursor: pointer;
