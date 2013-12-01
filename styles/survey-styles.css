@@ -48,10 +48,22 @@
 }
 .metric-sliders .value {
 	height: 20px;
-	color: rgba(0,0,0,.15);
+	background-color: rgba(0,0,0,.15);
 	position: absolute;
+	z-index: 10;
 	top: 0;
 	left: 0;
+	-webkit-transition: width 700ms cubic-bezier(0.610, 0.455, 0.000, 1); /* older webkit */
+-webkit-transition: width 700ms cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+   -moz-transition: width 700ms cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+     -o-transition: width 700ms cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+        transition: width 700ms cubic-bezier(0.610, 0.455, 0.000, 1.135); /* custom */
+
+-webkit-transition-timing-function: cubic-bezier(0.610, 0.455, 0.000, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+   -moz-transition-timing-function: cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+     -o-transition-timing-function: cubic-bezier(0.610, 0.455, 0.000, 1.135); 
+        transition-timing-function: cubic-bezier(0.610, 0.455, 0.000, 1.135); /* custom */
 }
 .metric-sliders .type {
 	margin: 0;

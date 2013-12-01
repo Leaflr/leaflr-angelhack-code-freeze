@@ -13,7 +13,8 @@ function( Backbone, Communicator, metricSliderTemp ){
   			this.listenTo(this.model, 'change:value', this.changeVal);
   		},
   		changeVal: function(){
-  			// animate slider
+  			this.$el.find('.value').width( this.model.get('value') + '%' );
+
   		},
   		activate: function(){
   			this.$el.removeClass('inactive');
