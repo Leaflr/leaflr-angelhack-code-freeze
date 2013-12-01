@@ -10,6 +10,7 @@ $ret = getCurlData($url);
 $array = json_decode($ret,True);
 
 $q_date = $array['query']['results']['quote']['LastTradeDate'];
+$q_date = date("Y-m-d", strtotime($q_date));
 $q_price = $array['query']['results']['quote']['LastTradePriceOnly'];
 
 $results_array = array(
