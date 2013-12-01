@@ -7,6 +7,7 @@ function( Backbone, Communicator, choiceTemp ){
 
 	return Backbone.Marionette.ItemView.extend({
   		template: choiceTemp,
+      className: 'choice',
 
   		events: {
   			'click':'selected'
