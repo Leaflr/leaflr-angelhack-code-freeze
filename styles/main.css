@@ -37,6 +37,7 @@ header {
 #wrapper {
 	margin: 0 auto;
 	max-width: 960px;
+	height: 100%;
 	background-color: #F0F1F5;
 	margin-top: 20px;
 	padding-bottom: 20px;
@@ -166,6 +167,7 @@ hr {
 	font-size:18px;
 	text-align: center;
 	padding: 16px 20px;
+	margin-bottom: 40px;
 	color:#505460;
 	position: relative;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -206,6 +208,12 @@ hr {
 	z-index: 10;
 	width: 35px;
 	height: 35px;
+}
+#survey-list {
+	display: none;
+}
+#take-survey {
+	overflow: auto;
 }
 
 @media only screen and (max-width: 920px){
@@ -256,6 +264,9 @@ hr {
 	}
 	.page-title {
 		display: none;
+	}
+	h3 {
+		font-size: 1em;
 	}
 }
 
