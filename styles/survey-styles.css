@@ -12,8 +12,9 @@
 	position: relative;
 	background-color: #ccc;
 }
-.choice img {
-
+.icon img {
+	position: relative;
+	z-index: 10;
 }
 .icon:before {
 	content: '';
@@ -33,6 +34,4 @@
 	left: 0;
 	background-color: transparent;
 }
-.choice h6 {
 
-}
