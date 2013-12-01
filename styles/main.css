@@ -2,9 +2,111 @@
 @import url("topcoat-mobile-light.css");
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700|Arvo:400,700);
 
+
+
+html {
+	background-color: #3C5363;
+}
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+	background-color: #F9FAFC;
+	padding: 20px;
+}
+
+.logo {
+	width: 100%;
+	max-width: 126px;
+	min-height: 50px;
+	background-image: url(../img/logo-landscape.svg);
+	text-indent: -99999px;
+}
+
+/* TYPOGRAPHY
+============================*/
+
+h1 {
+	font-family: 'Arvo', serif;
+	font-size:24px;
+	color: #505460;
+	line-height: 1.2em;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	padding-top: 16px;
+	}
+	
+h2 {
+	font-family: 'Arvo', serif;
+	font-size:22px;
+	color:#505460;
+	line-height:1.6em;
+	padding-top:16px;
+	letter-spacing:5px;
+	text-transform:uppercase;
+	}
+	
+h3 {
+	font-family: 'Arvo', serif;
+	font-weight: 400;
+	font-size:24px;
+	color:#505460;
+	line-height:1.6em;
+	letter-spacing:-0.25px;
+	padding-top:16px;
+	}
+	
+h4 {
+	font-family: 'Arvo', serif;
+	font-size:18px;
+	line-height:1.6em;
+	padding-top:16px;
+	letter-spacing:5px;
+	clear:both;
+	color:#505460;
+	text-transform:uppercase;
+	}
+	
+hr {
+   border: 1px dashed #C0C4D0;
+}
+
+p {
+	font-family:"Arvo", sans-serif;
+	font-size:14px;
+	color:#6A696C;
+	line-height:1.6em;
+	margin-bottom:20px;
+	margin-top:10px;
+	}
+	
+a {
+	font-size:14px;
+	font-family:'MuseoSlab500';
+	text-decoration:none;
+	}
+	
+a:hover {
+	text-decoration:underline;
+	}
+
+
+/* ELEMENTS
+============================*/
+
+hr {
+	border:none;
+	border-top: 1px solid #505460;
+	clear: both;
+	padding-top: 18px;
+	height: 15px;
+	background-image:url(../img/bg/paper.jpg);
+	}
+
 
 /* SURVEY CHOICES
 ============================*/
