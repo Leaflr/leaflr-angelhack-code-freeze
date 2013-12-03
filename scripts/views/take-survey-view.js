@@ -58,9 +58,9 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
         calories = ((calories * results.freq) * 2);
 
         var data = {};
-        data.oil = boi;
-        data.money = money;
-        data.gas = gallons;
+        data.oil = boi.toFixed(2);
+        data.money = '$'+money.toFixed(2);
+        data.gas = gallons.toFixed(2);
         data.calories = calories;
 
         console.log('gallons', gallons);

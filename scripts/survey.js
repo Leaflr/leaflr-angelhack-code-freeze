@@ -64,9 +64,6 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
             console.log('FULL', data);
             survey.results.vehicle_nonspec = 1;
-            if(option != null) {
-              survey.results.carvid = option;
-            }
             survey.results.carmpghwy  = data.highway08;
             survey.results.carmpgcity = data.city08;
             survey.results.carco2      = data.co2TailpipeGpm;
@@ -93,9 +90,6 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
             console.log('FULL', data);
             survey.results.vehicle_nonspec = 1;
-            if(option != null) {
-              survey.results.carvid = option;
-            }
             survey.results.carmpghwy  = data.highway08;
             survey.results.carmpgcity = data.city08;
             survey.results.carco2      = data.co2TailpipeGpm;
@@ -121,9 +115,6 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
 
             console.log('FULL', data);
             self.model.collection.parents[0].results.vehicle_nonspec = 1;
-            if(option != null) {
-              survey.results.carvid = option;
-            }
             survey.results.carmpghwy  = data.highway08;
             survey.results.carmpgcity = data.city08;
             survey.results.carco2      = data.co2TailpipeGpm;
