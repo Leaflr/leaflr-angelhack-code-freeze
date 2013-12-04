@@ -4,13 +4,10 @@
 @import url("survey-styles.css");
 
 
-html {
-	padding: 20px 40px;
-}
-
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	background-color: #2B3E4F;
+	padding: 10px 40px 20px;
 }
 
 ul { margin: 0; }
@@ -39,7 +36,7 @@ header {
 	max-width: 960px;
 	min-height: 110%;
 	background-color: #F0F1F5;
-	margin-top: 20px;
+	margin-top: 10px;
 	padding-bottom: 20px;
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
@@ -209,19 +206,6 @@ hr {
 	text-align: center;
 	color:#505460;
 }
-.result {
-	width: 49%;
-	display: inline-block;
-	padding-bottom: 20px;
-}
-.result img {
-	width: 100px;
-	height: 100px;
-	padding-bottom: 15px;
-}
-.result span {
-	display: block;
-}
 
 
 #metric-sliders .slider {
@@ -248,21 +232,25 @@ hr {
 
 
 @media only screen and (max-width: 920px){
-	.option, .choice {
+	.option, .choice,.result {
 		position: relative;
 		width: 50%;
 		margin-bottom: 30px;
+	}
+	.result {
+		padding-bottom: 10px;
+	}
+	.result img {
+		padding-bottom: 4px;
 	}
 	.options-wrapper {
 		padding: 0 60px;
 	}
 }
 @media only screen and (max-width: 750px){
-	html {
+	body {
 		padding: 0px;
 		margin: 0;
-	}
-	body {
 		background-color: #F0F1F5;
 	}
 	#wrapper {
