@@ -24,6 +24,8 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
 
     	initialize: function(){
     		var self = this;
+
+            // event is fired when a choice is clicked
     		Communicator.events.on('nextStep', function(model){
     			if ( model == 'end' ) self.endSurvey();
                 else self.compileStep( model );
@@ -85,24 +87,27 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
 
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,
-    			  step,
+    			step,
                 view,
                 parent,
     			stepsContent = [];
-        console.log(step)
 
-    		if ( !step ) step = steps[0].get('choices');
-        else if ( step.get('template') ) step = step;
-    		else step = step.get('choices');
-    	
-    		this.currentStep = step;
+            // if first step in survey, show first set of choices
+        	if ( !step ) step = steps[0].get('choices');
+            // if custom step
+            else if ( step.get('template') ) step = step;
+            // else show the next step
+        	else step = step.get('choices');
+        	
+        	this.currentStep = step;
+        	
+            // sets view depending on type of step
+            if ( step && step.get('template') )
+            view = new customStepView({ model: step, template: step.get('template') });
+            else
+            view = new choicesView({ collection: step });
     		
-        if ( step && step.get('template') )
-        view = new customStepView({ model: step, template: step.get('template') });
-        else
-        view = new choicesView({ collection: step });
-		
-        this.surveyStep.show( view );
+            this.surveyStep.show( view );
     	}
 
 	});

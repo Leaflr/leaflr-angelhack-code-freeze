@@ -67,6 +67,11 @@ header {
 	float: right;
 }
 
+#preload-checkmark {
+	position: absolute;
+	left: -9000px;
+}
+
 /* TYPOGRAPHY
 ============================*/
 
@@ -106,7 +111,15 @@ h4 {
 	letter-spacing:5px;
 	clear:both;
 	color:#505460;
-	}
+}
+
+h6 {
+	font-family: 'Arvo', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	color: #505460;
+	margin: 1.1em 0 1.5em;
+}
 
 p {
 	font-family:"Arvo", sans-serif;
@@ -288,6 +301,18 @@ hr {
 	}
 	h3 {
 		font-size: 1em;
+	}
+	#metric-sliders .slider {
+	width: 93%;
+	margin-left: 7%;
+	}
+	.metric-icon {
+	position: absolute;
+	left: -13%;
+	top: -10px;
+	z-index: 10;
+	width: 35px;
+	height: 35px;
 	}
 }
 

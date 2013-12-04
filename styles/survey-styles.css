@@ -13,13 +13,19 @@
 	text-align: center;
 	display: none;
 }
+.icon-wrapper {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	position: relative;
+}
 .icon {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
 	overflow: hidden;
 	margin: 0 auto;
-	margin-bottom: 10px;
 	position: relative;
 	text-align: center;
 	background-color: #DDE2E8;

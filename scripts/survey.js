@@ -4,28 +4,29 @@ define([
 	'models/survey-model',
 	'models/step-model',
 	'models/choices-model',
+  'models/metrics/base-metric-model',
 	'models/metrics/gas-model',
 	'models/metrics/emissions-model',
 	'models/metrics/money-model',
-  'hbs!tmpl/custom-step-vehicle'
+  'hbs!tmpl/custom-step-vehicle',
 ],
 
-function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel, emissionsModel, moneyModel, specificVehicleTemp) {
+function( Backbone, Communicator, surveyModel, stepModel, choicesModel, baseModel, gasModel, emissionsModel, moneyModel, specificVehicleTemp) {
     'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
-		vehicleType       = new stepModel({ step: 'vehicle type' }),
-		fuelType          = new stepModel({ step: 'fuel type' }),
-    roadType          = new stepModel({ step: 'road type' }),
-    distanceTraveled  = new stepModel({ step: 'distance traveled' }),
-		specificDistance  = new stepModel({ step: 'specific distance' }),
-		specificVehicle   = new stepModel({ step: 'specific vehicle' }),
-		userLocation      = new stepModel({ step: 'location' }),
-    tripFrequency     = new stepModel({ step: 'specific frequency' }),
-    foo               = new stepModel({ step: 'foo' }),
+		vehicleType       = new stepModel({ title: 'vehicle type' }),
+		fuelType          = new stepModel({ title: 'fuel type' }),
+    roadType          = new stepModel({ title: 'road type' }),
+    distanceTraveled  = new stepModel({ title: 'distance traveled' }),
+		specificDistance  = new stepModel({ title: 'specific distance' }),
+		specificVehicle   = new stepModel({ title: 'specific vehicle' }),
+		userLocation      = new stepModel({ title: 'location' }),
+    tripFrequency     = new stepModel({ title: 'specific frequency' }),
+    foo               = new stepModel({ title: 'foo' }),
 		gas               = new gasModel,
 		emissions         = new emissionsModel,
-		money             = new moneyModel
+		money             = new moneyModel;
 
 	survey.set('metrics', [ gas, emissions, money ]);
 
@@ -39,7 +40,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
     userLocation,
     tripFrequency
   ]);
-
+console.log(money)
   survey.results = {};
   survey.results.vehicle_nonspec = 0;
 
@@ -71,9 +72,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
           }
         });
 
-				gas.activate().addTo(20);
-        money.activate().addTo(10);
-        emissions.activate().addTo(5);
+				gas.add(20);
+        money.add(10);
+        emissions.add(5);
 			}
 		}),
 		new choicesModel({
@@ -96,9 +97,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
           }
         });
 
-        gas.activate().addTo(60);
-        money.activate().addTo(12);
-        emissions.activate().addTo(15);
+        gas.add(60);
+        money.add(12);
+        emissions.add(15);
       }
 		}),
 		new choicesModel({
@@ -122,9 +123,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
           }
         });
 
-        gas.activate().addTo(40);
-        money.activate().addTo(40);
-        emissions.activate().addTo(10);
+        gas.add(40);
+        money.add(40);
+        emissions.add(10);
 
       }
 		}),
@@ -152,9 +153,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.carfueltype = this.name;
 
-        gas.activate().addTo(20);
-        money.activate().addTo(20);
-        emissions.activate().addTo(7);
+        gas.add(20);
+        money.add(20);
+        emissions.add(7);
       }
 		}),
 		new choicesModel({
@@ -165,9 +166,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.carfueltype = this.name;
 
-        gas.activate().addTo(5);
-        money.activate().addTo(5);
-        emissions.activate().addTo(0);
+        gas.add(5);
+        money.add(5);
+        emissions.add(0);
       }
 		}),
 		new choicesModel({
@@ -178,9 +179,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.carfueltype = this.name;
 
-        gas.activate().addTo(40);
-        money.activate().addTo(40);
-        emissions.activate().addTo(30);
+        gas.add(40);
+        money.add(40);
+        emissions.add(30);
       }
 		}),
 		new choicesModel({
@@ -249,9 +250,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.tripdistance = 3;
 
-        gas.activate().addTo(10);
-        money.activate().addTo(5);
-        emissions.activate().addTo(5);
+        gas.add(10);
+        money.add(5);
+        emissions.add(5);
       }
     }),
     new choicesModel({
@@ -262,9 +263,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.tripdistance = 7;
 
-        gas.activate().addTo(13);
-        money.activate().addTo(10);
-        emissions.activate().addTo(10);
+        gas.add(13);
+        money.add(10);
+        emissions.add(10);
       }
     }),
     new choicesModel({
@@ -275,9 +276,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.tripdistance = 13;
 
-        gas.activate().addTo(15);
-        money.activate().addTo(15);
-        emissions.activate().addTo(15);
+        gas.add(15);
+        money.add(15);
+        emissions.add(15);
       }
     }),
     new choicesModel({
@@ -299,9 +300,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.hwyper = 80;
 
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+          gas.add(40);
+          money.add(40);
+          emissions.add(40);
       }
     }),
     new choicesModel({
@@ -312,9 +313,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.hwyper = 50;
 
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+          gas.add(40);
+          money.add(40);
+          emissions.add(40);
       }
     }),
     new choicesModel({
@@ -325,9 +326,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.hwyper = 80;
 
-          gas.activate().addTo(40);
-          money.activate().addTo(40);
-          emissions.activate().addTo(40);
+          gas.add(40);
+          money.add(40);
+          emissions.add(40);
       }
     }),
     new choicesModel({
@@ -350,9 +351,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.freq = 1;
 
-        gas.activate().addTo(40);
-        money.activate().addTo(40);
-        emissions.activate().addTo(40);
+        gas.add(40);
+        money.add(40);
+        emissions.add(40);
       }
     }),
     new choicesModel({
@@ -363,9 +364,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.freq = 3;
 
-        gas.activate().addTo(20);
-        money.activate().addTo(20);
-        emissions.activate().addTo(20);
+        gas.add(20);
+        money.add(20);
+        emissions.add(20);
       }
     }),
     new choicesModel({
@@ -376,9 +377,9 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, gasModel
       onSelect: function() {
         survey.results.freq = 5;
 
-        gas.activate().addTo(40);
-        money.activate().addTo(40);
-        emissions.activate().addTo(40);
+        gas.add(40);
+        money.add(40);
+        emissions.add(40);
       }
     }),
     new choicesModel({
