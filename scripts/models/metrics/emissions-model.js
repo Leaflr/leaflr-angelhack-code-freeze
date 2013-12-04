@@ -8,7 +8,9 @@ function( Backbone, Communicator ) {
 	return Backbone.MetricModel.extend({
 		defaults: {
 			name: 'emissions',
-			value: 0
+			value: 0,
+			measurement: 'CO² ppm',
+			type: 'minus'
 		}
 	});
 });

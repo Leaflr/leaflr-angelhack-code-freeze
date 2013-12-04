@@ -7,12 +7,24 @@ define([
   'models/metrics/base-metric-model',
 	'models/metrics/gas-model',
 	'models/metrics/emissions-model',
+  'models/metrics/calories-model',
+  'models/metrics/oil-model',
 	'models/metrics/money-model',
   'hbs!tmpl/custom-step-vehicle',
-],
-
-function( Backbone, Communicator, surveyModel, stepModel, choicesModel, baseModel, gasModel, emissionsModel, moneyModel, specificVehicleTemp) {
-    'use strict';
+], function(
+  Backbone,
+  Communicator,
+  surveyModel,
+  stepModel,
+  choicesModel,
+  baseModel,
+  gasModel,
+  emissionsModel,
+  caloriesModel,
+  oilModel,
+  moneyModel,
+  specificVehicleTemp ) {
+  'use strict';
 
 	var survey = new surveyModel({ name: 'bike', category: 'transit', completed: true }),
 		vehicleType       = new stepModel({ title: 'What type of vehicle do you have?' }),
@@ -26,9 +38,11 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, baseMode
     foo               = new stepModel({ title: 'foo' }),
 		gas               = new gasModel,
 		emissions         = new emissionsModel,
-		money             = new moneyModel;
+		money             = new moneyModel,
+    calories          = new caloriesModel({ showSlider: false }),
+    oil               = new oilModel({ showSlider: false });
 
-	survey.set('metrics', [ gas, emissions, money ]);
+	survey.set('metrics', [ gas, emissions, money, calories, oil ]);
 
 	survey.set('steps', [
     vehicleType,
@@ -40,7 +54,7 @@ function( Backbone, Communicator, surveyModel, stepModel, choicesModel, baseMode
     userLocation,
     tripFrequency
   ]);
-console.log(money)
+
   survey.results = {};
   survey.results.vehicle_nonspec = 0;
 

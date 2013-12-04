@@ -4,10 +4,13 @@ define([
 ],
 function( Backbone, Communicator ) {
     'use strict';
-console.log(Backbone)
+
 	return Backbone.MetricModel.extend({
 		defaults: {
-			name: 'oil'
+			name: 'oil',
+			value: 0,
+			measurement: 'Barrels of Oil',
+			type: 'minus'
 		},
 		initialize: function(){
 		      this.fetch({

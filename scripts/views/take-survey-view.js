@@ -4,11 +4,27 @@ define([
 	'views/metric-sliders-view',
 	'views/choices-view',
     'views/custom-step-view',
+    'views/survey-complete-view',
 	'hbs!tmpl/take-survey',
-  'hbs!tmpl/survey-complete',
     'handlebars',],
-function( Backbone, Communicator, metricSlidersView, choicesView, customStepView, takeSurveyTemp, surveyComplete, Handlebars ){
+function( Backbone, Communicator, metricSlidersView, choicesView, customStepView, surveyCompleteView, takeSurveyTemp, Handlebars ){
 	'use strict';
+
+    Backbone.Marionette.Region.prototype.closeAnimate = function(view){
+        var view = this.currentView;
+
+        if (!view || view.isClosed){ return; }
+        
+        this.$el.animate({ 'height': 0 }, 300);
+
+        // call 'close' or 'remove', depending on which is found
+        if (view.close) { view.close(); }
+        else if (view.remove) { view.remove(); }
+
+        Backbone.Marionette.triggerMethod.call(this, "close");
+
+        delete self.currentView;
+    }
 
 	return Backbone.Marionette.Layout.extend({
   		template: takeSurveyTemp,
@@ -42,49 +58,53 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
     		this.compileStep();
     	},
 
-      endSurvey: function(){
-        console.log('survey results', this.model.results);
-        var results = this.model.results;
-        console.log('complete',this.model)
+        endSurvey: function(){
+        
+            Communicator.events.trigger('endSurvey', this.model);
 
-        // Calculations
-        var gallons = ((results.tripdistance * (results.hwyper / 100)) / results.carmpghwy) + ((results.tripdistance * ((100 - results.hwyper) / 100)) / results.carmpgcity);
-        gallons = (gallons * (2 * results.freq));
+            var results = this.model.results;
+            console.log('complete',this.model)
 
-        var money   = (gallons * 3.33);
-        var boi = (gallons / 19);
+            // Calculations
+            var gallons = ((results.tripdistance * (results.hwyper / 100)) / results.carmpghwy) + ((results.tripdistance * ((100 - results.hwyper) / 100)) / results.carmpgcity);
+            gallons = (gallons * (2 * results.freq));
 
-        var co2     = results.tripdistance * results.carco2;
-        co2 = ((co2 * results.freq) * 2);
+            var money   = (gallons * 3.33);
+            var boi = (gallons / 19);
 
-        var calories  = results.tripdistance * 48;
-        calories = ((calories * results.freq) * 2);
+            var co2     = results.tripdistance * results.carco2;
+            co2 = ((co2 * results.freq) * 2);
 
-        var data = {};
-        data.oil = boi.toFixed(2);
-        data.money = '$'+money.toFixed(2);
-        data.gas = gallons.toFixed(2);
-        data.calories = calories;
+            var calories  = results.tripdistance * 48;
+            calories = ((calories * results.freq) * 2);
 
-        console.log('gallons', gallons);
-        console.log('money', money);
-        console.log('co2', co2);
-        console.log('cal', calories);
-        console.log('boi', boi);
+            var data = {};
+            data.oil = boi.toFixed(2);
+            data.money = '$'+money.toFixed(2);
+            data.gas = gallons.toFixed(2);
+            data.calories = calories;
 
-        this.$el.find('#survey-step').empty().append( surveyComplete(data) )
+            console.log('gallons', gallons);
+            console.log('money', money);
+            console.log('co2', co2);
+            console.log('cal', calories);
+            console.log('boi', boi);
 
-        /* Send data to database
-         * ===================== */
-        $.ajax({
-          url: 'data/survey_insert.php',
-          type: 'POST',
-          data: this.model.results,
-          onSuccess: function(data) {
-            console.log(data)
-          }
-        });
-      },
+            this.metricSliders.closeAnimate();
+
+            this.surveyStep.show( new surveyCompleteView({ collection: this.model.get('metrics') }))
+
+            /* Send data to database
+             * ===================== */
+            $.ajax({
+              url: 'data/survey_insert.php',
+              type: 'POST',
+              data: this.model.results,
+              onSuccess: function(data) {
+                console.log(data)
+              }
+            });
+        },
 
     	compileStep: function( step ){
     		var steps = this.model.get('steps').models,

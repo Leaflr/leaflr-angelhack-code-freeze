@@ -1,16 +1,29 @@
 define([
 	'backbone',
-	'communicator'
+	'communicator',
+	'associations'
 ],
 function( Backbone, Communicator ) {
     'use strict';
 
-	Backbone.MetricModel = Backbone.Model.extend({
+	Backbone.MetricModel = Backbone.AssociatedModel.extend({
 		defaults: {
 			name: '',
 			value: 0,
 			min: 0,
 			max: 100,
+			showSlider: true
+		},
+		initialize: function(){
+			var self = this;
+			
+			Communicator.events.on('endSurvey', function( survey ){
+				var parent = self.collection.parents[0];
+				if ( parent.cid == survey.cid ) self.calculateResult( survey );
+			});
+		},
+		calculateResult: function( survey ){
+			console.log(this.set('endSurvey', true))
 		},
 		add: function( val ){
 			var oldVal = parseFloat(this.get('value')),

@@ -7,7 +7,10 @@ function( Backbone, Communicator ) {
 
 	return Backbone.MetricModel.extend({
 		defaults: {
-			name: 'calories'
+			name: 'fitness',
+			value: 0,
+			measurement: 'Calories Burned',
+			type: 'plus'
 		}
 	});
 });

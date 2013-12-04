@@ -8,7 +8,9 @@ function( Backbone, Communicator ) {
 	return Backbone.MetricModel.extend({
 		defaults: {
 			name: 'money',
-			value: 0
+			value: 0,
+			measurement: 'Dollars Saved',
+			type: 'plus'
 		}
 	});
 });
