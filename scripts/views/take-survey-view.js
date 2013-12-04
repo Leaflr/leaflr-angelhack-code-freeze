@@ -45,6 +45,7 @@ function( Backbone, Communicator, metricSlidersView, choicesView, customStepView
       endSurvey: function(){
         console.log('survey results', this.model.results);
         var results = this.model.results;
+        console.log('complete',this.model)
 
         // Calculations
         var gallons = ((results.tripdistance * (results.hwyper / 100)) / results.carmpghwy) + ((results.tripdistance * ((100 - results.hwyper) / 100)) / results.carmpgcity);
