@@ -4,3 +4,4 @@ package.json
 npm-debug.log
 .bowercc
 Gruntfile.js
+components/
